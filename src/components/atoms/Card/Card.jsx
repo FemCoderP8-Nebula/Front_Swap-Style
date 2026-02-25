@@ -1,0 +1,1 @@
+//Card para mostrar la info principal del artículo
