@@ -1,6 +1,8 @@
-body{
+.loadingContainer{
+  min-height: 100dvh;
+  width: 100%;
   color: #fff;
-  background: #F9E9DF;
+  background: #F9E9DF!important;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;

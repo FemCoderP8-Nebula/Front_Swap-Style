@@ -1,0 +1,55 @@
+.second_content{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3{
+    text-shadow: 15px 15px 4px rgba(0,0,0,25%);
+    font-size: 32px;
+    font-weight: 100;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  
+}
+
+.item {
+  padding: 20px;
+  text-align: center;
+}
+
+.title_cell{
+  color: #E4097F;
+  text-shadow: 15px 15px 4px rgba(0,0,0,25%);
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.large {
+  grid-column: span 2;
+  
+}
+
+.image_cell{
+    display: flex;
+    justify-content:center ;
+    align-items: start;
+}
+
+
+.text_cell{
+  font-size: 20px;
+  font-weight: 100;
+  text-align:left;
+}
+
+.final_conclussion{
+    color: #EC7124;
+
+}

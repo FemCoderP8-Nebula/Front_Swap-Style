@@ -1,0 +1,73 @@
+html,body{
+    background-color: #F7F8F3!important;
+}
+
+h1{
+    font-weight: bold;
+    color: #BF1DC2;
+    font-size: 64px;
+    text-shadow: 15px 15px 4px rgba(0,0,0,25%);
+    text-align: center;
+    margin-top: 100px;
+}
+
+.first_paragraph{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: 20px auto;
+
+}
+
+.tshirt{
+    width: 35%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.tshirt img{
+    width: 90%;
+    
+}
+
+.content{
+    width: 65%;
+    padding-left: 30px;
+}
+
+h2{
+    color: #E4097F;
+    font-size:40px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+h3{
+    color: #08A872;
+    font-size:32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.intro{
+    font-size: 24px;
+    margin-bottom:30px;
+}
+
+h4{
+    color:#BF1DC2 ;
+    font-size:24px;
+    font-weight: 100;
+    margin-left: 100px;
+}
+
+.normal_text{
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+}

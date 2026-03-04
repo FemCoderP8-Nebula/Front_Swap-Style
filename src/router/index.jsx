@@ -1,51 +1,74 @@
+import { createBrowserRouter } from "react-router";
+import Layout from "../layout/Layout";
+import Home from "../pages/Home/Home";
+import Privacy from "../pages/Privacy/Privacy";
+import Register from "../pages/Register/Register";
+import Validation from "../pages/Validations/Validation";
+import Login from "../pages/Login/Login";
+import Gallery from "../pages/Gallery/Gallery";
+import Detail from "../pages/Detail/Detail";
+import RegArticle from "../pages/RegArticle/RegArticle";
+import Contact from "../pages/Contact/Contact";
+import Faqs from "../pages/Faqs/Faqs";
+import Panel from "../pages/Panel/UserPanel";
+import Wardrobe from "../pages/Wardrobe/Wardrobe";
+import HangerLoading from "../components/organisms/Loading/HangerLoading";
+
 export const router = createBrowserRouter([
   {
-    path: "/",
+     path: '/',
+    Component: HangerLoading,
+  },
+  {
+    path: '/home',
     Component: Layout,
     children: [
-      {
-        index: true,
-        Component: Home,
+      { index: true, 
+        Component: Home 
       },
       {
-        path: "/home",
-        Component: Home,
-      },
-      {
-        path:"/policy",
+        path: "policy",
         Component: Privacy,
       },
       {
-        path:"/register",
+        path: "register",
         Component: Register,
       },
       {
-        path:"/validation",
-        Component:Validation,
+        path: "validation",
+        Component: Validation,
       },
       {
-        path:"/login",
-        Component:Login,
+        path: "login",
+        Component: Login,
       },
       {
-        path:"/gallery",
+        path: "gallery",
         Component: Gallery,
       },
       {
-        path:"/info",
-        Component:Detail,
+        path: "info",
+        Component: Detail,
       },
       {
-        path:"/regArticle",
-        Component:RegArticle,
+        path: "regArticle",
+        Component: RegArticle,
       },
       {
-        path:"/contact",
-        Component:Contact,
+        path: "contact",
+        Component: Contact,
       },
       {
-        path:"/faqs",
-        Component:Faqs,
+        path: "faqs",
+        Component: Faqs,
+      },
+      {
+        path: "panel",
+        Component: Panel,
+      },
+      {
+        path: "wardrobe",
+        Component: Wardrobe,
       }
     ],
   },

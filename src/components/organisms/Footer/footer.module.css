@@ -1,1 +1,99 @@
-/*CSS del footer*/
+footer {
+  background-color: #bf1dc2;
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+  height: 100px;
+}
+
+.footer_info {
+  color: white;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+  white-space: nowrap;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.links {
+  list-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.name_app {
+  font-size: 40px;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_rrss {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.rrss {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+@media (min-width: 1000px) {
+  footer {
+    justify-content: center;
+    gap: 20%;
+    height: 70px;
+  }
+
+  ul li {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer_info {
+    width: 20%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .footer_rrss {
+    justify-content: flex-end;
+    align-items: last baseline;
+    width: 20%;
+    font-size: 16px;
+  }
+
+  .rrss {
+    gap: 10px;
+  }
+}

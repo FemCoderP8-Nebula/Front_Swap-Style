@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 import HangerLoading from "./components/organisms/Loading/HangerLoading"
 import './App.css'
 
@@ -15,4 +15,4 @@ function App() {
   )
 }
 
-export default App
+export default App*/

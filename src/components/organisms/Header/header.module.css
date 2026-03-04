@@ -1,1 +1,69 @@
-/*CSS del header*/
+header{
+    width: 100vw;
+    height: 20vh;
+    background: linear-gradient(to bottom,#F989C1 0%,#F7F8F3 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.logo{
+    width: 30%;
+    height: 80%;
+    margin-left: 20px ;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+
+.avatar{
+    width: 70%;
+    height: 50%;
+    position: relative;
+    top: 25%;
+    left: 15%;
+    display: none;
+    
+}
+    
+.login{
+    font-size:22px;
+    color:#052A75;
+    text-decoration: underline;
+    position: relative;
+    top: 40%;
+    left: 30%;
+    width: 100%;
+    height: 20%;
+}
+
+
+
+@media (min-width:1000px){
+
+    header{
+    height: 25vh;
+    }
+
+    .logo{
+        width: 10%;
+        height: 80%;
+        margin-left: 50px ;
+    }
+
+    .login{
+        font-size:20px;
+        top: 50%;
+        left: 45%;
+        transition: 0.3s ease;
+    }
+
+    .login:hover{
+        font-size:25px;
+        color: #00A26B;
+    }
+}
