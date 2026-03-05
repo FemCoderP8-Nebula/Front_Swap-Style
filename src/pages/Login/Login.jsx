@@ -1,14 +1,14 @@
-const Login=()=>{
-    return(
-        <main role="main">
-            <p>Página de Inicio prueba de botones</p>
-            <div>
-                <Button text="Login" BtnClass="neon" path="/login" />
-                <Button text="Register" BtnClass="liquid" path="/register" />
+import LoginForm from "../../components/organisms/LoginForm/LoginForm";
 
-            </div>
-        </main>
-    )
-}
+
+const Login = () => {
+  // Aquí podrías tener lógica de redirección si el usuario ya está logueado
+  
+  return (
+    <main className="page-container">
+      <LoginForm />
+    </main>
+  );
+};
 
 export default Login;
