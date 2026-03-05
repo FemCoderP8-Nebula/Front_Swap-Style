@@ -1,4 +1,76 @@
 .second_content{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.second_content .h3_subtitle{
+    text-shadow: var(--text-shadow);
+    font-size: 32px;
+    font-weight: 100;
+    align-self: flex-start;
+    display: none;
+}
+
+.grid_container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.item{
+  padding: 10px;
+}
+
+.image_cell{
+  grid-row: 1;
+}
+
+.image_cell img{
+  width: 60px;
+}
+
+.title_cell{
+  grid-row: 2;
+  color: var(--color-texth2);
+  text-shadow: var(--text-shadow);
+  font-size: 16px;
+  font-weight: 100;
+  text-align: center;
+  
+}
+
+.text_cell{
+  font-size: 20px;
+  font-weight: 100;
+  text-align:left;
+  display: none;
+}
+
+.final_conclussion{
+    color: var(--color-orange);
+    display: none;
+
+}
+
+.btn_field{
+ 
+  margin-bottom: 50px;
+}
+
+.btnInv_mobile{
+   margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+
+@media (min-width:1000px){
+.second_content{
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -7,16 +79,15 @@
     align-items: center;
 }
 
-h3{
-    text-shadow: 15px 15px 4px rgba(0,0,0,25%);
-    font-size: 32px;
-    font-weight: 100;
+.second_content .h3_subtitle{
+   display: block;
 }
 
 .grid_container {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  
+  grid-template-columns: 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: start;
 }
 
 .item {
@@ -24,32 +95,51 @@ h3{
   text-align: center;
 }
 
+
 .title_cell{
-  color: #E4097F;
-  text-shadow: 15px 15px 4px rgba(0,0,0,25%);
+  grid-row: 1;
+  grid-column: span 2;
+  color: var(--color-texth2);
+  text-shadow: var(--text-shadow);
   font-size: 24px;
   font-weight: 100;
+  text-align: left;
 }
 
 .large {
   grid-column: span 2;
-  
+  text-align: left;
 }
 
 .image_cell{
-    display: flex;
-    justify-content:center ;
-    align-items: start;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
+.image_cell img{
+  width: 100%;
+}
 
 .text_cell{
+  grid-row: 2;
   font-size: 20px;
   font-weight: 100;
-  text-align:left;
+  text-align: left;
+  display: block;
 }
 
 .final_conclussion{
-    color: #EC7124;
+    color: var(--color-orange);
 
+}
+
+.btn_field{
+  margin-bottom: 50px;
+}
+
+.btnInv_mobile{
+  display: none;
+}
 }

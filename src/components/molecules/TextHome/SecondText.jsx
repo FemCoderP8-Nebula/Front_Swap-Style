@@ -4,15 +4,29 @@ import Image2 from "../../../assets/Rectangle2.png";
 import Image3 from "../../../assets/Rectangle3.png";
 import Image4 from "../../../assets/Rectangle4.png"
 import Button from "../../atoms/Button/Button";
+import { useState, useEffect } from "react";
 
 
 function SecondText(){
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1000);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
     
     return(
 
         <>
         <div className={styles.second_content}>
-        <h3> Our Vision has four core pillars:</h3>
+        <h3 className={styles.h3_subtitle}> Our Vision has four core pillars:</h3>
         <div className={styles.grid_container}>
 
         <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Sustainable</div>
@@ -26,13 +40,14 @@ function SecondText(){
   <div className={`${styles.item} ${styles.image_cell}`}><img src={Image2} alt="Affordable" title="Affordable"/></div>
   <div className={`${styles.item} ${styles.text_cell}`}>Great style within everyone's reach.</div>
   <div className={`${styles.item} ${styles.image_cell}`}><img src={Image3} alt="Social" title="Social"/></div>
-  <div className={`${styles.item} ${styles.text_cell}`}>A network built on human connection.</div>
+  <div className={`${styles.item} ${styles.text_cell}`}>A &nbsp;&nbsp;&nbsp;&nbsp; network built on human connection.</div>
   <div className={`${styles.item} ${styles.image_cell}`}><img src={Image4} alt="Empowering" title="Empowering"/></div>
   <div className={`${styles.item} ${styles.text_cell}`}>Wear who you are while protecting the planet.</div>
 
 </div>
 <h2 className={styles.final_conclussion}>"Redefining the future of style—one swap at a time."</h2>
-<Button text="Register" BtnClass="liquid" path={"/register"}/>
+<div className={styles.btnInv_mobile}><Button text="Go to explore our World!" BtnClass="neon_invite" path={"/gallery"}/></div>
+<div className={styles.btn_field}><Button text="Register" BtnClass={isMobile ? "liquid_mobile" : "liquid"} path={"/register"}/></div>
 </div>
         </>
     )
