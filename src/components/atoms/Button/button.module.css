@@ -53,11 +53,11 @@ button{
     transition: 0.3s ease;
 }
 
-.cancel:hover{
+/*.cancel:hover{
     font-size: 35px;
     width: 190px;
     height: 70px;
-}
+}*/
 
 .reserved{
     background-color: #D9D9D9;

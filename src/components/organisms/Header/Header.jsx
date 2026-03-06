@@ -19,7 +19,7 @@ function Header() {
       />
       <nav>
         {!user ? (
-          <Link to="/login" className={styles.login}>
+          <Link to="/home/login" className={styles.login}>
             Login
           </Link>
         ) : (

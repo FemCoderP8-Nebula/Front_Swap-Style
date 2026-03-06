@@ -13,6 +13,7 @@ import Faqs from "../pages/Faqs/Faqs";
 import Panel from "../pages/Panel/UserPanel";
 import Wardrobe from "../pages/Wardrobe/Wardrobe";
 import HangerLoading from "../components/organisms/Loading/HangerLoading";
+import Prueba from "../pages/muestra.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
       { path: "faqs", Component: Faqs },
       { path: "panel", Component: Panel },
       { path: "wardrobe", Component: Wardrobe },
+      { path: "prueba", Component: Prueba}
     ],
   },
 ]);
