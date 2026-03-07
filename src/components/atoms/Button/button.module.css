@@ -53,11 +53,6 @@ button{
     transition: 0.3s ease;
 }
 
-/*.cancel:hover{
-    font-size: 35px;
-    width: 190px;
-    height: 70px;
-}*/
 
 .reserved{
     background-color: #D9D9D9;
@@ -80,6 +75,7 @@ button{
     position: relative;
     overflow: hidden;
     z-index: 0;
+    box-shadow:6px 6px 12px rgba(0,0,0,0.15),-6px -6px 12px rgba(255,255,255,0.6);
 }
 
 .liquid::before{
@@ -95,9 +91,6 @@ button{
     border-radius: 50% 50% 0 0;
 }
 
-.liquid {
-  box-shadow:6px 6px 12px rgba(0,0,0,0.15),-6px -6px 12px rgba(255,255,255,0.6);
-}
 
 .liquid:hover::before{
     height:100%;

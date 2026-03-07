@@ -12,7 +12,7 @@ function Changes(){
 
             <p>These policies will remain in effect until they are modified by duly published updates.</p>
 
-            <div className={styles.btn_field}><Button text="Back" BtnClass="cancel" path={"/home"}/></div>
+            <div className={styles.btn_field}><Button text="Back" BtnClass="cancel" path={"/home/contact"}/></div>
 
             </section>
     )
