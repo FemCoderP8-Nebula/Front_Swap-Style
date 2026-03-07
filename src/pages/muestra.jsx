@@ -1,12 +1,11 @@
-import GalleryCard from "../components/atoms/Card/GalleryCard";
-
+import Gallery from "../components/organisms/Gallery/ViewGallery";
 
 function muestra(){
 
     return(
         <>
         
-        <GalleryCard/>
+        <Gallery/>
         </>
 
     )

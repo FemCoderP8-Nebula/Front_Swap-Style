@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: Home },
-      { path: "policy", Component: Privacy },
+      { path: "privacy", Component: Privacy },
       { path: "register", Component: Register },
       { path: "validation", Component: Validation },
       { path: "login", Component: Login },

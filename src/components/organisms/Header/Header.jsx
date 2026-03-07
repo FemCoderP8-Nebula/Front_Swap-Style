@@ -28,7 +28,7 @@ function Header() {
             alt="avatar"
             title="Profile"
             className={styles.avatar}
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/home/profile")}
           />
         )}
       </nav>

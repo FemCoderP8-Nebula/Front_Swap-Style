@@ -1,3 +1,6 @@
+/*añadir el reserved para la card reservada */
+
+
 .card{
     background-color: var(--background-primary);
     width: 200px;
