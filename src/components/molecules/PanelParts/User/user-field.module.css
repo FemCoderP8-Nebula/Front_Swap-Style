@@ -1,0 +1,71 @@
+.wrapper_user {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.titleEditNameUser {
+  font-size: 18px;
+  color: var(--color-texth1);
+  font-weight: bold;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  margin: 0 auto;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #655c5c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a1a1a;
+  border: none;
+  border-bottom: 2px solid #6366f1;
+  outline: none;
+  background: transparent;
+  padding: 2px 4px;
+  width: 200px;
+}
+
+.editButton {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.savedBadge {
+  font-size: 25px;
+  color: var(--color-texth3);
+  font-weight: 700;
+}
+
+@media (min-width: 1000px) {
+  .wrapper_user {
+    width: 30%;
+    align-items: flex-start;
+  }
+  .titleEditNameUser {
+    font-size: 24px;
+    text-align: left;
+    width: 100vw;
+  }
+
+  .text {
+    font-size: 25px;
+  }
+
+  .input {
+    font-size: 25px;
+  }
+}

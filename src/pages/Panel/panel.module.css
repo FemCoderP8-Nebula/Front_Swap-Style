@@ -1,0 +1,11 @@
+.mainUserPanel {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.title_panel {
+  color: black;
+  text-align: center;
+  width: 100%;
+  font-size: 40px;
+}
