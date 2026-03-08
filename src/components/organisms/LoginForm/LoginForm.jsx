@@ -1,4 +1,5 @@
 //Formulario de logeo
+import styles from "./login-form.module.css";
 
 import FormField from '../../molecules/FormField/FormField';
 import Button from "../../atoms/Button/Button";
@@ -6,10 +7,11 @@ import Button from "../../atoms/Button/Button";
 
 const LoginForm = () => {
   return (
-    <section>
-      <h1>Login Form</h1>
+    <section className={styles.container}>
+      <h1 className={styles.title}>Login Form</h1>
       
-      <form>
+      <form className={styles.form}>
+        <div className={styles.fields}>
         <FormField
           label="Email" 
           type="email" 
@@ -20,10 +22,19 @@ const LoginForm = () => {
           type="password" 
           placeholder="Enter your password" 
         />
+        </div>
         
-        <div className="actions">
-          <Button>Log In</Button>
-          <Button>Cancel</Button>
+        <div className={styles.actions}>
+          <Button 
+          text="Log In"
+          BtnClass="neon"
+          path="/login"
+          />
+          <Button
+          text="Cancel"
+          BtnClass="cancel"
+          path="/home"
+          />
         </div>
       </form>
     </section>

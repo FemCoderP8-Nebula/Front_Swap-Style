@@ -1,1 +1,37 @@
-/* CSS Formulario de logeo*/
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 2rem;
+    border-radius: 15px;
+    /* box-shadow: 0 10px 25px rgba(0,0,0,0.1); */
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: 'Arial', sans-serif;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    text-align: left; 
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    margin-top: 10px;
+    flex-wrap: wrap; 
+}
