@@ -1,16 +1,22 @@
-import { useState } from "react"; 
+import { useState } from "react";
 import styles from "./login-form.module.css";
 import FormField from '../../molecules/FormField/FormField';
 import Button from "../../atoms/Button/Button";
+import userService from "../../../service/apiAccount";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/auth/AuthContext";
+
 
 const LoginForm = () => {
- 
+
+const {login} = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
 
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,11 +25,28 @@ const LoginForm = () => {
     });
   };
 
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("sended:", formData);
-    // LLamada a la API ??
+    setIsLoading(true);
+    try {
+
+      const response = await userService.login(formData);
+
+      console.log("¡Login successful, user :", response);
+
+
+    } catch (error) {
+      if (error.response && error.response.status === 500) {
+        alert("email is not registered, create an account first! ");
+      } else {
+        alert("Server problem, try again!");
+      }
+
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -34,7 +57,7 @@ const LoginForm = () => {
         <div className={styles.fields}>
           <FormField
             label="Email"
-            name="email" 
+            name="email"
             type="email"
             placeholder="Enter your email"
             value={formData.email}
@@ -51,11 +74,12 @@ const LoginForm = () => {
         </div>
 
         <div className={styles.actions}>
-          
+
           <Button
-            type="submit" 
-            text="Log In"
+            type="submit"
+            text={isLoading ? "Loading..." : "Log In"}
             BtnClass="neon"
+            disabled={isLoading}
           />
           <Button
             type="button"
