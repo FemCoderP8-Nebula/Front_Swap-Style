@@ -1,14 +1,14 @@
-const Panel=()=>{
-    return(
-        <main role="main">
-            <p>Página de Inicio prueba de botones</p>
-            <div>
-                <Button text="Login" BtnClass="neon" path="/login" />
-                <Button text="Register" BtnClass="liquid" path="/register" />
+import UserPanel from "../../components/organisms/UserPanel/UserPanel";
+import styles from "./panel.module.css";
 
-            </div>
-        </main>
-    )
-}
+const Panel = () => {
+  return (
+    <main role="main" className={styles.mainUserPanel}>
+      <h1 className={styles.title_panel}>User Panel</h1>
+
+      <UserPanel />
+    </main>
+  );
+};
 
 export default Panel;

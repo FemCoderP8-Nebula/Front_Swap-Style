@@ -1,0 +1,32 @@
+.wrapperRegArticle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.titleRegArtUser {
+  font-size: 18px;
+  color: var(--color-texth1);
+  font-weight: bold;
+  text-align: center;
+}
+
+.fieldBtnRegArt {
+  display: flex;
+  justify-content: left;
+}
+
+@media (min-width: 1000px) {
+  .wrapperRegArticle {
+    width: 30%;
+    align-items: flex-start;
+  }
+
+  .titleRegArtUser {
+    text-align: left;
+    font-size: 24px;
+    width: 100vw;
+  }
+}

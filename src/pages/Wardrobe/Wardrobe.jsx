@@ -1,14 +1,16 @@
-const Wardrobe=()=>{
-    return(
-        <main role="main">
-            <p>Página de Inicio prueba de botones</p>
-            <div>
-                <Button text="Login" BtnClass="neon" path="/login" />
-                <Button text="Register" BtnClass="liquid" path="/register" />
+import styles from "./wardrobe.module.css";
+import Button from "../../components/atoms/Button/Button";
+import ViewWardrow from "../../components/organisms/Wardrobe/ViewWardrobe";
 
-            </div>
-        </main>
-    )
-}
+const Wardrobe = () => {
+  return (
+    <main role="main" className={styles.mainWardrobe}>
+      <ViewWardrow />
+      <div className={styles.btnBack}>
+        <Button text="Back" BtnClass="cancel" path="/home/panel" />
+      </div>
+    </main>
+  );
+};
 
 export default Wardrobe;

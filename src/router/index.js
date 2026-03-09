@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       { index: true, Component: Home },
-      { path: "policy", Component: Privacy },
+      { path: "privacy", Component: Privacy },
       { path: "register", Component: Register },
       { path: "validation", Component: Validation },
       { path: "checkmodal", Component: CheckModal },
@@ -37,6 +37,7 @@ export const router = createBrowserRouter([
       { path: "faqs", Component: Faqs },
       { path: "panel", Component: Panel },
       { path: "wardrobe", Component: Wardrobe },
+      { path: "prueba", Component: Prueba}
     ],
   },
 ]);

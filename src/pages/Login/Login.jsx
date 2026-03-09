@@ -1,10 +1,8 @@
 const Login=()=>{
     return(
         <main role="main">
-            <p>Página de Inicio prueba de botones</p>
+            <p>Página de Inicio de Login</p>
             <div>
-                <Button text="Login" BtnClass="neon" path="/login" />
-                <Button text="Register" BtnClass="liquid" path="/register" />
 
             </div>
         </main>
