@@ -1,0 +1,54 @@
+.subtitle_panel {
+  color: black;
+  text-align: left;
+  font-size: 32px;
+  width: 100%;
+}
+
+.column_left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column_right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fieldBtnPanel {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+@media (min-width: 1000px) {
+  .field_management {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .fieldBtnPanel {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+  }
+
+  .column_left {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .column_right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+}

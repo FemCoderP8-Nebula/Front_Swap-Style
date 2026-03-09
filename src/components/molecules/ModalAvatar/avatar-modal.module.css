@@ -1,0 +1,127 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: rgba(212, 211, 25, 20);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  width: min(90vw, 600px);
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.avatarBtn {
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.2s;
+}
+
+.selected {
+  border-color: var(--color-texth2);
+  background: var(--color-neonbutton);
+}
+
+.avatarImg {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.avatarName {
+  font-size: 11px;
+  color: #666;
+  text-transform: capitalize;
+  text-transform: lowercase;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.liquid_mobile {
+  background: linear-gradient(to right, #08a872 0%, #12ffae 100%);
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.6);
+}
+
+.cancel {
+  border: 1px dashed black;
+  color: black;
+  font-size: 32px;
+  font-weight: 800;
+  transition: 0.3s ease;
+}
+
+@media (min-width: 1000px) {
+  .modal {
+    position: relative;
+    width: min(90vw, 600px);
+    height: auto;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .avatarBtn:hover {
+    border-color: #6366f1;
+  }
+  .liquid {
+    border: 2px solid #22c55e;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    box-shadow:
+      6px 6px 12px rgba(0, 0, 0, 0.15),
+      -6px -6px 12px rgba(255, 255, 255, 0.6);
+  }
+
+  .liquid::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 0%;
+    left: -10%;
+    bottom: 0;
+    background: linear-gradient(to right, #08a872 0%, #12ffae 100%);
+    transition: height 1.2s ease;
+    z-index: -1;
+    border-radius: 50% 50% 0 0;
+  }
+
+  .liquid:hover::before {
+    height: 100%;
+  }
+}

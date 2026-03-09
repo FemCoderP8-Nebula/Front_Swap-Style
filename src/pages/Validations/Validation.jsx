@@ -1,3 +1,5 @@
+import Button from "../../components/atoms/Button/Button";
+
 const Validation=()=>{
     return(
         <main role="main">

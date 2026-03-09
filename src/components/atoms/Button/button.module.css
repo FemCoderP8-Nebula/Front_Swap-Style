@@ -1,106 +1,102 @@
 /* hacer el click y el bloqueo de los botones*/
 
+button {
+  background: transparent;
+  width: 160px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border: none;
+  font-size: 28px;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+  border-radius: 20px;
+}
 
-button{
-    background: transparent;
+.neon {
+  border: 5px solid var(--color-neonbutton);
+  color: var(--color-neonbutton);
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.neon:hover,
+.neon_invite:hover {
+  box-shadow: 0 0 20px var(--color-neonbutton);
+  border: 5px solid var(--color-neonbutton);
+}
+
+.neon_invite {
+  width: auto;
+  border: 5px solid var(--color-neonbutton);
+  color: var(--color-neonbutton);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.liquid_mobile {
+  background: linear-gradient(to right, #08a872 0%, #12ffae 100%);
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.6);
+}
+
+.cancel {
+  border: 1px dashed black;
+  color: black;
+  font-size: 32px;
+  font-weight: 800;
+  transition: 0.3s ease;
+}
+
+.reserved {
+  background-color: #d9d9d9;
+  color: rgba(0, 0, 0, 0.25);
+  border: 5px solid #655c5c;
+}
+
+@media (min-width: 1000px) {
+  button {
     width: 175px;
     height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    border: none;
-    font-size: 28px;
-    color: black;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s ease;
-    border-radius: 20px;
-}
-
-.neon{
-    border: 5px solid var(--color-neonbutton);
-    color: var(--color-neonbutton);
-    font-size: 32px;
-    font-weight: 800;
-}
-
-.neon:hover, .neon_invite:hover{
-    box-shadow: 0 0 20px var(--color-neonbutton);
-    border: 5px solid var(--color-neonbutton);
-}
-
-.neon_invite{
-    width: auto;
-    border: 5px solid var(--color-neonbutton);
-    color: var(--color-neonbutton);
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.liquid_mobile{
-    background: linear-gradient(to right,#08A872 0%,#12FFAE 100%);
-    box-shadow:6px 6px 12px rgba(0,0,0,0.15),-6px -6px 12px rgba(255,255,255,0.6);
-}
-
-
-.cancel{
-    border: 1px dashed black;
-    color: black;
-    font-size: 32px;
-    font-weight: 800;
-    transition: 0.3s ease;
-}
-
-.cancel:hover{
-    font-size: 35px;
-    width: 190px;
-    height: 70px;
-}
-
-.reserved{
-    background-color: #D9D9D9;
-    color: rgba(0,0,0,0.25);
-    border:5px solid #655C5C;
-}
-
-@media (min-width:1000px){
-    .neon_invite{
+  }
+  .neon_invite {
     width: auto;
     border: 5px solid var(--color-neonbutton);
     color: var(--color-neonbutton);
     font-size: 32px;
     font-weight: 800;
-}
+  }
 
-
-.liquid{
-    border:2px solid #22c55e;
+  .liquid {
+    border: 2px solid #22c55e;
     position: relative;
     overflow: hidden;
     z-index: 0;
-}
+    box-shadow:
+      6px 6px 12px rgba(0, 0, 0, 0.15),
+      -6px -6px 12px rgba(255, 255, 255, 0.6);
+  }
 
-.liquid::before{
-    content:"";
+  .liquid::before {
+    content: "";
     position: absolute;
     width: 120%;
-    height:0%;
+    height: 0%;
     left: -10%;
-    bottom:0;
-    background: linear-gradient(to right,#08A872 0%,#12FFAE 100%);
+    bottom: 0;
+    background: linear-gradient(to right, #08a872 0%, #12ffae 100%);
     transition: height 1.2s ease;
-    z-index:-1;
+    z-index: -1;
     border-radius: 50% 50% 0 0;
-}
+  }
 
-.liquid {
-  box-shadow:6px 6px 12px rgba(0,0,0,0.15),-6px -6px 12px rgba(255,255,255,0.6);
-}
-
-.liquid:hover::before{
-    height:100%;
-}
-
+  .liquid:hover::before {
+    height: 100%;
+  }
 }
