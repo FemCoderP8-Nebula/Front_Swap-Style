@@ -1,0 +1,72 @@
+.privacy{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+h3{
+    width: 100%;
+}
+
+
+.company_group{
+    background-color: var(--color-texth1);
+    border-radius: 5px;
+}
+
+.company_owner{
+    background-color:var(--color-texth2);
+    border-radius: 5px;
+}
+
+.company_id{
+    background-color:var(--color-orange);
+    border-radius: 5px;
+}
+
+.company_address{
+    background-color:var(--color-texth3);
+    border-radius: 5px;
+}
+
+.company_email {
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+}
+
+.company_website{
+    background-color:rgb(245, 147, 216);
+    border-radius: 5px;
+}
+
+.company_app{
+    background-color: rgb(140, 140, 207);
+    border-radius: 5px;
+}
+
+.company_smtp{
+    background-color: red;
+    border-radius: 5px;
+}
+
+
+.btn_field{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+@media (min-width:1000px){
+.privacy{
+    width: 80%;
+    margin: 0 auto;
+    font-size: 30px;
+
+}
+
+a{
+    display: inline;
+}
+}

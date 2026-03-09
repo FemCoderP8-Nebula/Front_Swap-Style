@@ -1,0 +1,74 @@
+.wrapperEditAvatar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.titleEditAvatar {
+  font-size: 18px;
+  color: var(--color-texth1);
+  font-weight: bold;
+  text-align: center;
+}
+
+.fieldBtnChooseAvatar {
+  display: flex;
+  justify-content: left;
+}
+
+.liquid_mobile {
+  background: linear-gradient(to right, #08a872 0%, #12ffae 100%);
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 1000px) {
+  .wrapperEditAvatar {
+    width: 30%;
+    align-items: flex-start;
+  }
+
+  .titleEditAvatar {
+    font-size: 24px;
+    width: 100vh;
+    text-align: left;
+  }
+
+  .currentAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: contain;
+  }
+
+  .liquid {
+    border: 2px solid #22c55e;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    box-shadow:
+      6px 6px 12px rgba(0, 0, 0, 0.15),
+      -6px -6px 12px rgba(255, 255, 255, 0.6);
+  }
+
+  .liquid::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 0%;
+    left: -10%;
+    bottom: 0;
+    background: linear-gradient(to right, #08a872 0%, #12ffae 100%);
+    transition: height 1.2s ease;
+    z-index: -1;
+    border-radius: 50% 50% 0 0;
+  }
+
+  .liquid:hover::before {
+    height: 100%;
+  }
+}

@@ -8,13 +8,25 @@ const api = axios.create({
   },
 });
 
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 api.interceptors.response.use(
-  response => {
+  (response) => {
     return response;
   },
-  error => {
+  (error) => {
     if (error.response) {
-      console.error("Error in the response:", error.response.status, error.response.data);
+      console.error(
+        "Error in the response:",
+        error.response.status,
+        error.response.data,
+      );
       switch (error.response.status) {
         case 400:
           alert("Bad Request (400)");
@@ -22,13 +34,13 @@ api.interceptors.response.use(
         case 401:
           alert("Not authorized (401)");
           localStorage.removeItem("token");
-          navigateTo("/home/login");       
+          navigateTo("/home/login");
           break;
         case 404:
           alert("Resource not Found (404)");
           break;
         case 500:
-          alert("Internal Error from server (500)");
+          // no hacer nada, cada servicio maneja el error con try/catch
           break;
         default:
           alert(`Error: ${error.response.status}`);
@@ -42,7 +54,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

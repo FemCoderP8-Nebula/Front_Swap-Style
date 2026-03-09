@@ -6,6 +6,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
+  position: relative;
 }
 
 .logo {
@@ -24,33 +25,81 @@ header {
 
 nav {
   display: flex;
-  flex-direction: row;
-  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
 }
 
 .avatar {
-  width: 70%;
-  height: 50%;
-  position: relative;
-  top: 25%;
-  left: 15%;
-  display: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid black;
+  background-color: white;
 }
 
 .login {
   font-size: 22px;
   color: #052a75;
   text-decoration: underline;
-  position: relative;
-  top: 40%;
-  left: 30%;
   width: 100%;
   height: 20%;
+}
+.fieldLogin {
+  width: 40%;
+}
+.fieldAvatar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 50px;
+}
+
+.fieldLogout {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding-right: 20px;
+}
+
+.logout_icon {
+  width: 50px;
+  height: 50px;
 }
 
 @media (min-width: 1000px) {
   header {
     height: 25vh;
+  }
+
+  nav {
+    width: 20%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fieldLogin {
+    width: 40%;
+    align-self: center;
+    margin-top: 50px;
+  }
+
+  .fieldAvatar {
+    width: 100%;
+    display: flex;
+    padding-left: 100px;
+    padding-top: 0;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid black;
   }
 
   .logo {
@@ -77,5 +126,17 @@ nav {
   .login:hover {
     font-size: 25px;
     color: #00a26b;
+  }
+
+  .fieldLogout {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+
+  .logout_icon {
+    width: 50px;
+    height: 50px;
   }
 }
