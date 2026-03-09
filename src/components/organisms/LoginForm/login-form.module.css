@@ -2,36 +2,37 @@
     max-width: 600px;
     margin: 50px auto;
     padding: 2rem;
-    border-radius: 15px;
-    /* box-shadow: 0 10px 25px rgba(0,0,0,0.1); */
-    text-align: center;
+    text-align: center; /* Centra el título y el contenido */
 }
 
 .title {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    font-family: 'Arial', sans-serif;
-    color: #1a1a1a;
+    font-family: 'Syne', sans-serif; 
     font-weight: 700;
+    text-shadow: var(--text-shadow); 
+    position: relative;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 30px; 
+    align-items: center; /* Centra los campos */
 }
 
 .fields {
+    width: 100%;
+    max-width: 450px; /* Para que no se estiren demasiado */
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 20px; 
     text-align: left; 
 }
 
 .actions {
     display: flex;
     justify-content: center;
-    gap: 10px; 
-    margin-top: 10px;
-    flex-wrap: wrap; 
+    gap: 25px; 
+    margin-top: 20px;
 }
