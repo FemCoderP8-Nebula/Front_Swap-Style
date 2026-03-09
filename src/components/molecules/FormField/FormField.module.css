@@ -7,18 +7,17 @@
 
 .label {
     font-family: 'Syne', sans-serif;
-    font-weight: 600;
+    font: weight 800px;;
     color: #333;
-    /* Si quieres que el label también esté centrado como el título: */
     text-align: left; 
     padding-left: 10px;
 }
 
 .mainInput {
-    /* border: 2px solid var(--color-texth2); El rosa fuerte de tu :root */
+    border: 2px solid var(--color-texth2); 
     border-radius: 20px;
     padding: 12px 15px;
-    background-color: #f0f7f4; /* El tono hueso/verdoso de la imagen */
+    background-color: #f0f7f4;
     font-family: 'Syne', sans-serif;
     outline: none;
     font-size: 1rem;
@@ -28,4 +27,38 @@
 .mainInput::placeholder {
     color: #999;
     font-size: 0.9rem;
+}
+
+
+@media (min-width: 1024px) {
+  
+  .form-container {
+    max-width: 500px;     
+    margin: 50px auto;    
+    padding: 40px;       
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+  }
+
+  .actions {
+    gap: 50px;            
+    margin-top: 30px;
+  }
+
+  input {
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+
+/* form div { 
+    margin-bottom: 25px; 
+} */
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
 }
