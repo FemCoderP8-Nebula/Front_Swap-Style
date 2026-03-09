@@ -1,0 +1,133 @@
+/*cambiar tamaño de avatar del header*/
+
+html,body{
+    background-color: var(--background-primary)!important;
+}
+
+h1{
+    font-weight: bold;
+    color: var( --color-texth1);
+    font-size: 28px;
+    text-shadow: var(--text-shadow);
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+.first_paragraph{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 20px auto;
+    margin-left: 40px;
+}
+
+.tshirt{
+    width: 35%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding-left: 100px;
+    display: none;
+}
+
+.tshirt img{
+    width: 90%;
+    display: none;
+    
+}
+
+.content{
+    width: 65%;
+    text-align: left;
+}
+
+h2{
+    color: var(--color-texth2);
+    font-size:30px;
+    text-align: left;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+h3{
+    color: var(--color-texth3);
+    font-size:20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    width: 100vw;
+}
+
+.intro{
+    font-size: 20px;
+    margin-bottom:30px;
+}
+
+h4{
+    color:var(--color-texth4) ;
+    font-size:25px;
+    font-weight: 100;
+}
+
+.normal_text{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btnInv_desk{
+    margin: 0 auto;
+    display: none;
+}
+
+@media (min-width:1000px){
+h1{
+    font-size: 64px;
+    width: 100vw;
+}
+
+.first_paragraph{
+    width: 80%;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.tshirt{
+    display: inline;
+}
+
+.tshirt img{
+    display: block;
+}
+
+
+h2{
+    font-size:40px;
+    text-align: center;
+}
+
+h3{
+    font-size:32px;
+}
+
+.intro{
+    font-size: 24px;
+}
+
+h4{
+    font-size:24px;
+    margin-left: 100px;
+}
+
+.normal_text{
+    margin-left: 100px;
+}
+
+.btnInv_desk{
+    display: flex;
+    justify-content: center;
+}
+}
