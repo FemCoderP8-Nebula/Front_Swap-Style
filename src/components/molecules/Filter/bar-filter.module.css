@@ -1,0 +1,142 @@
+.filter_bar{
+    border:3px solid var(--color-neonbutton);
+    width: 95%;
+    height:80px;
+    border-radius: 20px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.filter_by{
+    display: none;
+}
+
+
+.filter_selectCategory{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+
+.filter_selectRange{
+    width: 40%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+select{
+    appearance: none;
+  -webkit-appearance: none;
+  background-image: url("../../../assets/arrow.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-left: 10px;
+  padding-right: 32px;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: rgba(249,233,223,50);
+    border: 3px solid var(--color-texth2);
+    border-radius: 10px;
+
+}
+
+.total_label{
+   display: none;
+}
+
+
+
+@media (min-width:1000px){
+
+.filter_bar{
+    border:3px solid var(--color-neonbutton);
+    width: 95%;
+    height:80px;
+    border-radius: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter_by{
+    font-size: 32px;
+    color: black;
+    font-weight: bold;
+    stroke: var(--color-texth1);
+    stroke-width: 2;
+    width: 25%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 50px;
+    opacity: 1;
+}
+
+
+.filter_selectCategory{
+    width: 25%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+
+.filter_selectRange{
+    width: 25%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+select{
+    appearance: none;
+  -webkit-appearance: none;
+  background-image: url("../../../assets/arrow.png");
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-left: 10px;
+  padding-right: 32px;
+    width: 300px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 400;
+    background-color: rgba(249,233,223,50);
+    border: 3px solid var(--color-texth2);
+    border-radius: 10px;
+
+}
+
+.total_label{
+    width: 25%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    opacity: 1;
+}
+
+.total{
+    border: 3px solid #00A26B;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background-color: rgba(249,233,223,50);
+     font-size: 24px;
+     color: rgba(0,0,0,50%);
+}
+}

@@ -12,18 +12,22 @@ const articleService = {
   },
 
   getByCategory: async (category) => {
-    const response = await api.get(
-      `/article/articlesByCategory?category=${category}`,
-    );
+  try {
+    const response = await api.get(`/article/articlesByCategory?category=${category}`);
     return response.data;
-  },
+  } catch (error) {
+    return [];
+  }
+},
 
   getByPublishedRange: async (range) => {
-    const response = await api.get(
-      `/article/articlesByPublishedRange?range=${range}`,
-    );
+  try {
+    const response = await api.get(`/article/articlesByPublishedRange?range=${range}`);
     return response.data;
-  },
+  } catch (error) {
+    return [];
+  }
+},
 
   getGallery: async (page = 0, size = 30) => {
     const response = await api.get(

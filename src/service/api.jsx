@@ -40,7 +40,7 @@ api.interceptors.response.use(
           alert("Resource not Found (404)");
           break;
         case 500:
-          alert("Internal Error from server (500)");
+          // no hacer nada, cada servicio maneja el error con try/catch
           break;
         default:
           alert(`Error: ${error.response.status}`);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import apiArticle from "../../../service/apiArticle";
 import GalleryCard from "../../atoms/Card/GalleryCard";
 import FilterBar from "../../molecules/Filter/FilterBar";
+import styles from "./view-gallery.module.css";
 
 const ViewGallery = () => {
   const [articles, setArticles] = useState([]);
@@ -11,6 +12,7 @@ const ViewGallery = () => {
   const [activeFilters, setActiveFilters] = useState({ category: "", range: "" });
 
   const fetchArticles = async (filters = activeFilters, currentPage = page) => {
+  try {
     if (filters.category) {
       const data = await apiArticle.getByCategory(filters.category);
       setArticles(data);
@@ -24,7 +26,10 @@ const ViewGallery = () => {
       setArticles(data.content);
       setTotalPages(data.totalPages);
     }
-  };
+  } catch (error) {
+    setArticles([]);
+  }
+};
 
   useEffect(() => {
     fetchArticles(activeFilters, page);
@@ -50,6 +55,29 @@ const ViewGallery = () => {
         totalArticles={articles.length}
       />
 
+      {articles.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "2rem", color: "#888" }}>
+          <p className={styles.not_found}>No articles found</p>
+        </div>
+      ) : (
+        <div className={styles.gallery_view}>
+          {articles.map((article, i) => (
+            <GalleryCard
+              key={i}
+              id={article.id}
+              title={article.title}
+              category={article.category}
+              date={article.published}
+              user={article.sellerName}
+              state={article.state}
+              size={article.size}
+              price={article.price}
+              image={article.image}
+            />
+          ))}
+        </div>
+      )}
+
       {!hasActiveFilter && (
         <div>
           <button onClick={prevFive}>&lt;&lt;5</button>
@@ -59,23 +87,6 @@ const ViewGallery = () => {
           <button onClick={nextFive}>5&gt;&gt;</button>
         </div>
       )}
-
-      <div className="articles-grid">
-        {articles.map((article, i) => (
-          <GalleryCard
-            key={i}
-            id={article.id}
-            title={article.title}
-            category={article.category}
-            date={article.published}
-            user={article.sellerName}
-            state={article.state}
-            size={article.size}
-            price={article.price}
-            image={article.image}
-          />
-        ))}
-      </div>
     </div>
   );
 };
