@@ -1,29 +1,31 @@
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 2rem;
-    text-align: center; /* Centra el título y el contenido */
+ .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto; 
+    padding: 2rem; 
 }
 
 .title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    font-family: 'Syne', sans-serif; 
-    font-weight: 700;
-    text-shadow: var(--text-shadow); 
-    position: relative;
+    width: 100%; 
+    max-width: 100%; 
+    font-size: 2.5rem ;
+    text-align: center;
+    margin: 0 0 2rem 0; 
+    box-sizing: border-box;
+    color: var(--text-shadow);
 }
 
 .form {
     display: flex;
     flex-direction: column;
     gap: 30px; 
-    align-items: center; /* Centra los campos */
+    align-items: center; 
 }
 
-.fields {
+ .fields {
     width: 100%;
-    max-width: 450px; /* Para que no se estiren demasiado */
+    max-width: 450px; 
     display: flex;
     flex-direction: column;
     gap: 20px; 
@@ -33,6 +35,7 @@
 .actions {
     display: flex;
     justify-content: center;
-    gap: 25px; 
+    gap: 35px; 
     margin-top: 20px;
-}
+} 
+
