@@ -30,7 +30,7 @@ function FirstText(){
         <h4>Discover:</h4>
         <p className={styles.normal_text}>Find unique pieces with their own story.</p>
 
-        <div className={styles.btnInv_desk}><Button text="Go to explore our World!" BtnClass="neon_invite" path={"/gallery"}/></div>
+        <div className={styles.btnInv_desk}><Button text="Go to explore our World!" BtnClass="neon_invite" path={"/home/gallery"}/></div>
         </div>
         </div>
         </>
