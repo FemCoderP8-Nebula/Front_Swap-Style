@@ -1,14 +1,17 @@
+import RegisterForm from "../../components/organisms/RegisterForm/RegisterForm";
+
 const Register=()=>{
     return(
-        <main role="main">
-            <p>Página de Inicio prueba de botones</p>
-            <div>
-                <Button text="Login" BtnClass="neon" path="/login" />
-                <Button text="Register" BtnClass="liquid" path="/register" />
+        // <main role="main">
+        //     <p>Página de Inicio prueba de botones</p>
+        //     <div>
+        //         <Button text="Login" BtnClass="neon" path="/login" />
+        //         <Button text="Register" BtnClass="liquid" path="/register" />
 
-            </div>
-        </main>
-    )
-}
+        //     </div>
+        // </main>
+        <RegisterForm/>
+    );
+};
 
 export default Register;
