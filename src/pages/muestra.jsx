@@ -1,6 +1,6 @@
 import Gallery from "../components/organisms/Gallery/ViewGallery";
 
-function muestra(){
+function Muestra(){
 
     return(
         <>
@@ -11,4 +11,4 @@ function muestra(){
     )
 }
 
-export default muestra;
+export default Muestra;
