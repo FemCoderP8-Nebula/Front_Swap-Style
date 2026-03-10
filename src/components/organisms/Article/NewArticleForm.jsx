@@ -3,6 +3,7 @@ import Input from "../../atoms/Input/Input"
 import { AuthContext } from "../../../context/auth/AuthContext";
 import articleService from "../../../service/apiArticle";
 import Button from "../../atoms/Button/Button";
+import styles from "./NewArticleForm.module.css";
 
 
 const NewArticleForm = () => {
@@ -47,16 +48,16 @@ const NewArticleForm = () => {
         }
     }
     return (
-        <section>
+        <section className={styles.container}>
             <h1 className={styles.title}>Register Article</h1>
             <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={Styles.fields}>
+                <div className={styles.fields}>
                     <Input
                         name="title"
                         placeholder="Name Article"
                         value={newArticleData.title}
                         onChange={handleChange}
-                        className={styles.Input}
+                        // className={styles.Input}
                     />
                     <Input
                         name="category"
@@ -70,6 +71,8 @@ const NewArticleForm = () => {
                         value={newArticleData.image}
                         onChange={handleChange}
                     />
+                     </div>
+                     <div className={styles.wstate}>
                     <Input
                         name="state"
                         placeholder="State"
@@ -77,6 +80,8 @@ const NewArticleForm = () => {
                         onChange={handleChange}
 
                     />
+                     </div>
+                     <div className={styles.row}>
                     <Input
                         name="price"
                         placeholder="Price"
@@ -91,6 +96,8 @@ const NewArticleForm = () => {
                         onChange={handleChange}
 
                     />
+                    </div>
+                    <div className={styles.descWrapper}>
                     <Input
                         name="description"
                         placeholder="Description"
