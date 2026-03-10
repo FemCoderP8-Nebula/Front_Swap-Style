@@ -33,7 +33,7 @@ function Header() {
             </Link>
           </div>
         ) : (
-          <>
+          <div className={styles.field_logged}>
             <div className={styles.fieldAvatar}>
               <img
                 src={AVATARS[user.avatar] || Avatar}
@@ -52,7 +52,7 @@ function Header() {
                 title="Close session"
               />
             </div>
-          </>
+          </div>
         )}
       </nav>
     </header>
