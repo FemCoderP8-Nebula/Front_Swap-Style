@@ -52,13 +52,29 @@
 }
 
 .actions button {
-  
     width: 120px; 
     height: 45px; 
     padding: 8px; 
     font-family: 'Syne', sans-serif;
     font-size: 16px !important; 
     font-weight: normal;
+}
+
+p{
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;      
+    gap: 150px;         
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+.actions a{
+    color: var(--color-texth3);
+    font-weight: bold;
 }
 
 @media (min-width: 768px) {
@@ -70,7 +86,18 @@
 
 }
 
+.desktopOnly {
+    display: none;
+    animation: none !important; 
+    transition: none !important;
+    opacity: 1 !important;
+}
+
 @media (min-width: 1000px){
+.desktopOnly {
+    display: inline;
+    color: inherit;
+}
 .container{
     max-width: 600px;
     padding: 2rem;
@@ -90,19 +117,16 @@
 }
 .modal {
     grid-area: Avatars;
+    margin-left: 20px;
+    margin-right: 60px;
+    margin-bottom: 100px;
 }
 .accions {
-    grid-area: actions;
+    grid-area: Actions;
 }
 }
 
-.actions {
-    display: flex;      
-    gap: 150px;         
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
+
   
 
 

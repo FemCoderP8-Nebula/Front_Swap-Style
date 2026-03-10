@@ -42,10 +42,11 @@ const RegisterForm = () => {
         const response = await userService.register(user);
         console.log("Register successful");
         login(response); //AQUI HAY QUE VER QUE DEVUELVE EL API, ES PARA QUE QUEDE LOGUEADO
+        navigate("/home/checkmodal") //?????????
         navigate("/home/gallery");
      } catch (error) {
        if (error.response && error.response.status === 500) {
-        alert("User already registered, please log in first! ");
+        alert("User already registered, please log in! ");
         navigate("/home/login");
       } else {
         alert("Server problem, try again!");
@@ -57,7 +58,9 @@ const RegisterForm = () => {
 
   return (
     <section className={styles.container}>
-      <h1 className={styles.title}>Register</h1>
+      <h1 className={styles.title}>
+        <span className={styles.desktopOnly}>Form </span>
+        Register</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.fields}>
           <FormField
@@ -91,7 +94,7 @@ const RegisterForm = () => {
           alt="Register User Logo" 
           />
           <p>Choose your Avatar</p>
-          <Button text="Gallery" BtnClass="liquid_mobile" path=""/>
+          <Button text="Gallery" BtnClass="liquid_mobile" path=""/> 
         </div>
         <div className={styles.accions}>
           <div className={styles.actions}>
@@ -102,7 +105,7 @@ const RegisterForm = () => {
               I have read and agree to the <a href="/privacy">Privacy Policy</a>
             </TermsAgreement>
           </div>
-          <div >
+          <div className={styles.actions}>
             <Button text="Register" BtnClass="neon" type="submit" />
             <Button text="Cancel" BtnClass="cancel" path="/home" />
           </div>

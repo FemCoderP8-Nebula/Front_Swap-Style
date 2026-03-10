@@ -47,7 +47,7 @@ function SecondText(){
 </div>
 <h2 className={styles.final_conclussion}>"Redefining the future of style—one swap at a time."</h2>
 <div className={styles.btnInv_mobile}><Button text="Go to explore our World!" BtnClass="neon_invite" path={"/gallery"}/></div>
-<div className={styles.btn_field}><Button text="Register" BtnClass={isMobile ? "liquid_mobile" : "liquid"} path={"/register"}/></div>
+<div className={styles.btn_field}><Button text="Register" BtnClass={isMobile ? "liquid_mobile" : "liquid"} path={"/home/register"}/></div>
 </div>
         </>
     )

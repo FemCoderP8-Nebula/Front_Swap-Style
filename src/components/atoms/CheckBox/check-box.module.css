@@ -5,6 +5,13 @@ input.checkBox{
     border-radius: 5px;
     width: 24px !important;
     height: 24px !important;
-    cursor: pointer !important;
-    
+    cursor: pointer !important; 
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+input:checked::after{
+    font-size: 25px !important;
 }
