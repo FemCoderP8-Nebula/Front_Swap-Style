@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import apiArticle from "../../../service/apiArticle";
 import GalleryCard from "../../atoms/Card/GalleryCard";
 import FilterBar from "../../molecules/Filter/FilterBar";
+import Pagination from "../../molecules/Pagination/Pagination";
 import styles from "./view-gallery.module.css";
 
 const ViewGallery = () => {
@@ -9,27 +10,65 @@ const ViewGallery = () => {
   const [page, setPage] = useState(0);
   const [size] = useState(30);
   const [totalPages, setTotalPages] = useState(0);
-  const [activeFilters, setActiveFilters] = useState({ category: "", range: "" });
+  const [activeFilters, setActiveFilters] = useState({
+    category: "",
+    range: "",
+  });
+  const [totalArticles, setTotalArticles] = useState(0);
+
+  const itemsPerPage = 30;
+  const hasActiveFilter = activeFilters.category || activeFilters.range;
+
+  const paginatedArticles = hasActiveFilter
+    ? articles.slice(page * itemsPerPage, (page + 1) * itemsPerPage)
+    : articles;
+
+  const computedTotalPages = hasActiveFilter
+    ? Math.ceil(articles.length / itemsPerPage)
+    : totalPages;
 
   const fetchArticles = async (filters = activeFilters, currentPage = page) => {
-  try {
-    if (filters.category) {
-      const data = await apiArticle.getByCategory(filters.category);
-      setArticles(data);
-      setTotalPages(1);
-    } else if (filters.range) {
-      const data = await apiArticle.getByPublishedRange(filters.range);
-      setArticles(data);
-      setTotalPages(1);
-    } else {
-      const data = await apiArticle.getGallery(currentPage, size);
-      setArticles(data.content);
-      setTotalPages(data.totalPages);
+    try {
+      if (filters.category) {
+        let data = await apiArticle.getByCategory(filters.category);
+        if (filters.range === "OLDERS") {
+          data = [...data].sort(
+            (a, b) => new Date(a.published) - new Date(b.published),
+          );
+        } else {
+          data = [...data].sort(
+            (a, b) => new Date(b.published) - new Date(a.published),
+          );
+        }
+        setArticles(data);
+        setTotalArticles(data.length);
+      } else if (filters.range) {
+        const data = await apiArticle.getByPublishedRange(filters.range);
+        if (filters.range === "OLDERS") {
+          setArticles(
+            [...data].sort(
+              (a, b) => new Date(a.published) - new Date(b.published),
+            ),
+          );
+        } else {
+          setArticles(
+            [...data].sort(
+              (a, b) => new Date(b.published) - new Date(a.published),
+            ),
+          );
+        }
+        setTotalArticles(data.length);
+      } else {
+        const response = await apiArticle.getGallery(currentPage, size);
+        setArticles(response.content);
+        setTotalPages(response.page.totalPages);
+        setTotalArticles(response.page.totalElements);
+      }
+    } catch (error) {
+      setArticles([]);
+      setTotalArticles(0);
     }
-  } catch (error) {
-    setArticles([]);
-  }
-};
+  };
 
   useEffect(() => {
     fetchArticles(activeFilters, page);
@@ -41,27 +80,20 @@ const ViewGallery = () => {
     fetchArticles(filters, 0);
   };
 
-  const nextOne = () => setPage(prev => Math.min(prev + 1, totalPages - 1));
-  const prevOne = () => setPage(prev => Math.max(prev - 1, 0));
-  const nextFive = () => setPage(prev => Math.min(prev + 5, totalPages - 1));
-  const prevFive = () => setPage(prev => Math.max(prev - 5, 0));
-
-  const hasActiveFilter = activeFilters.category || activeFilters.range;
-
   return (
-    <div>
+    <div className={styles.body_gallery}>
       <FilterBar
         onFiltersChange={handleFiltersChange}
-        totalArticles={articles.length}
+        totalArticles={totalArticles}
       />
 
-      {articles.length === 0 ? (
+      {paginatedArticles.length === 0 ? (
         <div style={{ textAlign: "center", padding: "2rem", color: "#888" }}>
           <p className={styles.not_found}>No articles found</p>
         </div>
       ) : (
         <div className={styles.gallery_view}>
-          {articles.map((article, i) => (
+          {paginatedArticles.map((article, i) => (
             <GalleryCard
               key={i}
               id={article.id}
@@ -73,20 +105,17 @@ const ViewGallery = () => {
               size={article.size}
               price={article.price}
               image={article.image}
+              isReserved={article.isReserved}
             />
           ))}
         </div>
       )}
 
-      {!hasActiveFilter && (
-        <div>
-          <button onClick={prevFive}>&lt;&lt;5</button>
-          <button onClick={prevOne}>&lt;1</button>
-          Página {page + 1} de {totalPages}
-          <button onClick={nextOne}>1&gt;</button>
-          <button onClick={nextFive}>5&gt;&gt;</button>
-        </div>
-      )}
+      <Pagination
+        page={page}
+        totalPages={computedTotalPages}
+        onPageChange={setPage}
+      />
     </div>
   );
 };
