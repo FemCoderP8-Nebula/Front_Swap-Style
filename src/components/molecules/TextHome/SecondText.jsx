@@ -2,14 +2,12 @@ import styles from "./second-text.module.css";
 import Image1 from "../../../assets/Rectangle1.png";
 import Image2 from "../../../assets/Rectangle2.png";
 import Image3 from "../../../assets/Rectangle3.png";
-import Image4 from "../../../assets/Rectangle4.png"
+import Image4 from "../../../assets/Rectangle4.png";
 import Button from "../../atoms/Button/Button";
 import { useState, useEffect } from "react";
 
-
-function SecondText(){
-
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+function SecondText() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,13 +19,35 @@ function SecondText(){
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-    
-    return(
+  return (
+    <>
+      <div className={styles.second_content}>
+        <h3 className={styles.h3_subtitle}>
+          {" "}
+          Our Vision has four core pillars:
+        </h3>
 
-        <>
-        <div className={styles.second_content}>
-        <h3 className={styles.h3_subtitle}> Our Vision has four core pillars:</h3>
         <div className={styles.grid_container}>
+          <div
+            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
+          >
+            Sustainable
+          </div>
+          <div
+            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
+          >
+            Affordable
+          </div>
+          <div
+            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
+          >
+            Social
+          </div>
+          <div
+            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
+          >
+            Empowering
+          </div>
 
         <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Sustainable</div>
         <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Affordable</div>
@@ -53,4 +73,4 @@ function SecondText(){
     )
 }
 
-export default SecondText
+export default SecondText;
