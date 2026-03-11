@@ -1,28 +1,27 @@
 :root {
-  --color-neonbutton: #BF1DC2;
-  --color-liquidbutton:linear-gradient(to right,#08A872 0%,#12FFAE 100%);
-  --box-shadow: 6px 6px 12px rgba(0,0,0,0.15),-6px -6px 12px rgba(255,255,255,0.6);
-  --color-texth1: #BF1DC2;
-  --text-shadow:15px 15px 4px rgba(0,0,0,25%);
-  --color-texth2:#E4097F;
-  --color-texth3:#08A872;
-  --color-texth4:#BF1DC2;
-  --color-orange:#EC7124;
-  --background-primary:#F7F8F3;
-  --background-modal:#F2FFF9;
-
+  --color-neonbutton: #bf1dc2;
+  --color-liquidbutton: linear-gradient(to right, #08a872 0%, #12ffae 100%);
+  --box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.15), -6px -6px 12px rgba(255, 255, 255, 0.6);
+  --color-texth1: #bf1dc2;
+  --text-shadow: 15px 15px 4px rgba(0, 0, 0, 25%);
+  --color-texth2: #e4097f;
+  --color-texth3: #08a872;
+  --color-texth4: #bf1dc2;
+  --color-orange: #ec7124;
+  --background-primary: #f7f8f3;
+  --background-modal: #f2fff9;
+  --background-input: rgba(233, 249, 229, 20);
 }
 
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-html,body{
-  font-family:'Syne',Arial, Helvetica, sans-serif;
+html,
+body {
+  font-family: "Syne", Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }

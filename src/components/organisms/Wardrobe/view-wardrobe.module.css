@@ -1,6 +1,6 @@
 .galleryWardrobe {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
@@ -9,6 +9,7 @@
 .titleWardrobe {
   font-size: 25px;
   color: black;
+  margin-left: 20px;
 }
 
 .offers {
@@ -23,6 +24,15 @@
   font-size: 32px;
   color: black;
   text-align: center;
+}
+
+.view_wardrobe{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2%;
+  row-gap: 10px;
+  margin: 0 10px;
 }
 
 @media (min-width: 1000px) {
