@@ -1,0 +1,52 @@
+.sizeWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    width: 20px;
+}
+
+.penIcon {
+    width: 100%;
+    height: auto;
+}
+
+/* .sizeWrapper {
+    display: inline-block;
+}
+
+.displayRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.inputSize {
+    width: 80px;
+    border: none;
+    border-bottom: 2px solid #00FF85;
+    background: transparent;
+    outline: none;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+.editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.penIcon {
+    width: 14px;
+    height: auto;
+} */

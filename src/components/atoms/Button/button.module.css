@@ -9,7 +9,7 @@ button {
   align-items: center;
   padding: 16px;
   border: none;
-  font-size: 28px;
+  font-size: 2px;
   color: black;
   cursor: pointer;
   position: relative;
@@ -21,8 +21,11 @@ button {
 .neon {
   border: 5px solid var(--color-neonbutton);
   color: var(--color-neonbutton);
-  font-size: 32px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 600;
+  width: 120px;
+  height: 45px;
+  padding: 8px;
 }
 
 .neon:hover,
@@ -49,9 +52,12 @@ button {
 .cancel {
   border: 1px dashed black;
   color: black;
-  font-size: 32px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: normal;
   transition: 0.3s ease;
+  width: 120px;
+  height: 45px;
+  padding: 8px;
 }
 
 .reserved {
