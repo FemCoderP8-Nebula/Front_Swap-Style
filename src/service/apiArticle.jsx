@@ -44,6 +44,10 @@ const articleService = {
     const response = await api.get(`/article/user/${idUser}`);
     return response.data;
   },
+  getById: async (id) => {
+    const response = await api.get(`/article/${id}`);
+    return response.data;
+},
 };
 
 export default articleService;

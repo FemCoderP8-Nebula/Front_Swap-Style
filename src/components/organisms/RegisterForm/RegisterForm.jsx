@@ -25,6 +25,7 @@ const validate = (user) => {
   } else if (user.password.length < 6) {
     errors.password = "Password must be at least 6 characters";
   }
+  if (!user.avatar) errors.avatar = "Please select an avatar";
   return errors;
 };
 
@@ -68,9 +69,10 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, password: true });
+    setTouched({ name: true, email: true, password: true, avatar: true });
 
-    if (Object.keys(frontendErrors).length > 0) return;
+    const errors = validate(user);
+    if (Object.keys(errors).length > 0) return;
 
     if (!accepted) {
       alert("Please accept the Privacy Policy");
@@ -83,7 +85,7 @@ const RegisterForm = () => {
         userName: user.name,
         email: user.email,
         password: user.password,
-        avatar: user.avatar,
+        avatar: user.avatar || null,
         role: "USER",
       };
       const response = await userService.register(dataToBackend);
@@ -162,6 +164,7 @@ const RegisterForm = () => {
             BtnClass="liquid_mobile"
             onClick={() => setShowAvatarsModal(true)}
           />
+          <div className={styles.error}>{getError("avatar") || ""}</div>
         </div>
 
         <div className={styles.accions}>

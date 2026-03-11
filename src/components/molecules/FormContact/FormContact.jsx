@@ -199,6 +199,7 @@ const FormContact = ({ onSubmit }) => {
         onBlur={handleBlur}
         tabIndex={1}
         accessKey="n"
+        aria-label="User Name"
         className={styles.input_contact}
       />
       <div className={styles.error}>{getError("name") || ""}</div>
@@ -211,6 +212,7 @@ const FormContact = ({ onSubmit }) => {
         placeholder="Your email"
         tabIndex={2}
         accessKey="e"
+        aria-label="User Email"
         onChange={handleChange}
         onBlur={handleBlur}
         className={styles.input_contact}
@@ -225,6 +227,7 @@ const FormContact = ({ onSubmit }) => {
         placeholder="Your city"
         tabIndex={3}
         accessKey="c"
+        aria-label="User City"
         onChange={handleChange}
         onBlur={handleBlur}
         className={styles.input_contact}
@@ -236,6 +239,7 @@ const FormContact = ({ onSubmit }) => {
         placeholder="Your message"
         tabIndex={4}
         accessKey="m"
+        aria-label="User Message"
         onChange={handleChange}
         onBlur={handleBlur}
       />

@@ -77,6 +77,11 @@ p{
     font-weight: bold;
 }
 
+.error{
+    margin-top: 10px;
+    color: red;
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 480px;
