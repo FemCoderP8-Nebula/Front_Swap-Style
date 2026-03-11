@@ -54,7 +54,7 @@ const NewArticleForm = () => {
                 <div className={styles.fields}>
                     <Input
                         name="title"
-                        placeholder="Name Article"
+                        placeholder="Title"
                         value={newArticleData.title}
                         onChange={handleChange}
                         // className={styles.Input}
