@@ -1,45 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./login-form.module.css";
 import FormField from '../../molecules/FormField/FormField';
 import Button from "../../atoms/Button/Button";
 import userService from "../../../service/apiAccount";
-import { useContext } from "react";
-import { AuthContext } from "../../../context/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+
 
 
 const LoginForm = () => {
 
-const {login} = useContext(AuthContext);
+  const response = userService();
+  const navigate = useNavigate();
+  const [touched, setTouched] = useState({});
+  const [serverErrors, setServerErrors] = useState({});
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    response
+  })
 
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
 
-
   const handleChange = (e) => {
+
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData((formData) => ({ ...formData, [name]: value }));
+    if (serverErrors[name]) { setServerErrors((formData) => ({ ...formData, [name]: undefined })); }
   };
 
-  const [isLoading, setIsLoading] = useState(false);
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value
+  //   });
+  // };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setTouched({ email: true, password: true });
+    if (Object.keys(frontendErrors).length > 0) return;
+
+
     try {
 
-      const response = await userService.login(formData);
-
-      console.log("¡Login successful, user :", response);
+      const user = await userService.login(response);
+      console.log("¡Login successful, user :", user);
+      navigate("/home/gallery");
 
 
     } catch (error) {
-      if (error.response && error.response.status === 500) {
-        alert("email is not registered, create an account first! ");
+      if (error.response) {
+        setErrors(error.response.data)
       } else {
         alert("Server problem, try again!");
       }
@@ -62,6 +82,7 @@ const {login} = useContext(AuthContext);
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
+            error={serverErrors.email}
           />
           <FormField
             label="Password"
@@ -70,6 +91,7 @@ const {login} = useContext(AuthContext);
             placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
+            error={serverErrors.password}
           />
         </div>
 
@@ -80,6 +102,7 @@ const {login} = useContext(AuthContext);
             text={isLoading ? "Loading..." : "Log In"}
             BtnClass="neon"
             disabled={isLoading}
+
           />
           <Button
             type="button"
