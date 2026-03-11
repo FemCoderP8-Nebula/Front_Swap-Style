@@ -25,13 +25,13 @@ const CheckModal = () => {
             /> */}
 
             {/* Modal para email de contacto realizado con exito -> Activara al pulsar boton SEND de Form contacto */}
-            <MessageModal
+            {/* <MessageModal
                 image={checkGif}
                 message="Your message has been sent."
                 btnText="Back"
                 btnPath="/home"
-                btnClass="liquid"
-            />
+                btnClass="liquid" */}
+           //
 
             {/* Modal para articulo reservado con exito -> Activara al pulsar el boton BOOK en el detalle del Articulo */}
             {/* <MessageModal
