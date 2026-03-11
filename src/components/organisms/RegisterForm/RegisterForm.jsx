@@ -25,6 +25,14 @@ const RegisterForm = () => {
     password: "",
   });
 
+  const [modalConfig, setModalConfig] = useState({
+    show: false,
+    image: null,
+    message: "",
+    btnText: "",
+    btnPath: "",
+  });
+  
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -37,10 +45,10 @@ const RegisterForm = () => {
 
   const handleAvatarSelect = (avatarKey) => {
     setUser({
-    ...user,
-    avatar: avatarKey
+      ...user,
+      avatar: avatarKey,
     });
-};
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,25 +63,29 @@ const RegisterForm = () => {
         email: user.email,
         password: user.password,
         avatar: user.avatar,
-        role: "USER"
-      }
+        role: "USER",
+      };
       console.log("Objeto exacto que sale hacia el servidor:", dataToBackend);
       const response = await userService.register(dataToBackend);
-      console.log("Register successful");
-      login(response); //AQUI HAY QUE VER QUE DEVUELVE EL API, ES PARA QUE QUEDE LOGUEADO
-      setShowCheckModal(true)
-      //navigate("/home/checkmodal") //?????????
-      // navigate("/home/gallery"); va a la galeria desde el modal??
+      login(response);
+      setModalConfig({
+        show: true,
+        image: checkGif,
+        message: "User Registered Successfully!",
+        btnText: "Go to Gallery",
+        btnPath: "/home/gallery",
+      });
     } catch (error) {
-      console.log("Status del error:", error.response?.status);
-      console.log("Mensaje del Backend:", error.response?.data);
       if (error.response && error.response.status === 500) {
-        //checkear que error envia si el usuario ya está registrado, puede ser otro 400 o 409
-        alert("User already registered, please log in! ");
-        navigate("/home/login");
+        setModalConfig({
+          show: true,
+          image: USER,
+          message: "This email is already registered, Please log in!",
+          btnText: "Go to Login",
+          btnPath: "/home/login",
+        });
       } else {
-        alert(`Server problem (Error ${error.response?.status}). Check console!`);
-        //alert("Server problem, try again!");
+        alert("Server problem, try again!");
       }
     } finally {
       setIsLoading(false);
@@ -114,12 +126,15 @@ const RegisterForm = () => {
           />
         </div>
         <div className={styles.modal}>
-          <img src={user.avatar ? AVATARS[user.avatar] : USER} 
-          alt="Register User Logo" />
+          <img
+            src={user.avatar ? AVATARS[user.avatar] : USER}
+            alt="Register User Logo"
+          />
           <p>Choose your Avatar</p>
           <Button
             text="Gallery"
             BtnClass="liquid_mobile"
+            type="button"
             onClick={() => setShowAvatarsModal(true)}
           />
         </div>
@@ -129,7 +144,7 @@ const RegisterForm = () => {
               checked={accepted}
               onChange={() => setAccepted(!accepted)}
             >
-              I have read and agree to the <a href="/privacy">Privacy Policy</a>
+              I have read and agree to the <a href="/home/privacy">Privacy Policy</a>
             </TermsAgreement>
           </div>
           <div className={styles.actions}>
@@ -138,21 +153,21 @@ const RegisterForm = () => {
           </div>
         </div>
       </form>
-      {showCheckModal && (
-        <MessageModal
-          image={checkGif}
-          message="User Registered Successfully"
-          btnText="Login"
-          btnPath="/home/gallery"
-          btnClass="liquid"
+      {showAvatarsModal && (
+        <AvatarModal
+          isOpen={showAvatarsModal}
+          currentAvatar={user.avatar}
+          onSelect={handleAvatarSelect}
+          onClose={() => setShowAvatarsModal(false)}
         />
       )}
-      {showAvatarsModal && (
-        <AvatarModal 
-        isOpen={showAvatarsModal} 
-        currentAvatar={user.avatar}
-        onSelect={handleAvatarSelect}
-        onClose={() => setShowAvatarsModal(false)}
+      {modalConfig.show && (
+        <MessageModal
+          image={modalConfig.image}
+          message={modalConfig.message}
+          btnText={modalConfig.btnText}
+          btnPath={modalConfig.btnPath}
+          btnClass="liquid"
         />
       )}
     </section>
@@ -161,5 +176,3 @@ const RegisterForm = () => {
 
 export default RegisterForm;
 
-//verificar ruta hacia pagina con mensaje de registro exitoso
-/*RUTA modal CHOOSE AVATAR*/
