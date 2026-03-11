@@ -1,12 +1,11 @@
-const Login=()=>{
-    return(
-        <main role="main">
-            <p>Página de Inicio de Login</p>
-            <div>
+import LoginForm from "../../components/organisms/LoginForm/LoginForm";
 
-            </div>
-        </main>
-    )
-}
+
+const Login = () => {
+  return (
+
+    <LoginForm />
+  );
+};
 
 export default Login;
