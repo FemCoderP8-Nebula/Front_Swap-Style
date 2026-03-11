@@ -3,47 +3,66 @@ import styles from "./login-form.module.css";
 import FormField from '../../molecules/FormField/FormField';
 import Button from "../../atoms/Button/Button";
 import userService from "../../../service/apiAccount";
-import { useContext } from "react";
-import { AuthContext } from "../../../context/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
+const validate = (form) => {
+  const errors = {};
+  if (!form.email.trim()) {
+    errors.email = "Email is required";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    errors.email = "Invalid email format";
+  }
+  if (!form.password.trim()) {
+    errors.password = "Password is required";
+  }
+  return errors;
+};
 
 const LoginForm = () => {
-
-const {login} = useContext(AuthContext);
-
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const [touched, setTouched] = useState({});
+  const [serverErrors, setServerErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (serverErrors[name]) {
+      setServerErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  const [isLoading, setIsLoading] = useState(false);
+  const handleBlur = (e) => {
+    setTouched((prev) => ({ ...prev, [e.target.name]: true }));
+  };
+
+  const frontendErrors = validate(formData);
+
+  const getError = (field) =>
+    (touched[field] && frontendErrors[field]) || serverErrors[field];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setTouched({ email: true, password: true });
+    if (Object.keys(frontendErrors).length > 0) return;
+
     setIsLoading(true);
     try {
-
-      const response = await userService.login(formData);
-
-      console.log("¡Login successful, user :", response);
-
-
+      const userData = await userService.login(formData);
+      login(userData);                                      
+      navigate("/home/gallery");
     } catch (error) {
-      if (error.response && error.response.status === 500) {
-        alert("email is not registered, create an account first! ");
+      if (error.response?.status === 400 && error.response?.data) {
+        setServerErrors(error.response.data);
       } else {
-        alert("Server problem, try again!");
+        setServerErrors({ general: "Invalid email or password" });
       }
-
     } finally {
       setIsLoading(false);
     }
@@ -52,7 +71,6 @@ const {login} = useContext(AuthContext);
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>Login</h1>
-
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.fields}>
           <FormField
@@ -62,6 +80,11 @@ const {login} = useContext(AuthContext);
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
+            onBlur={handleBlur}
+            error={getError("email")}
+            tabIndex={1}
+            accessKey="e"
+            aria-label="Email address"
           />
           <FormField
             label="Password"
@@ -70,11 +93,17 @@ const {login} = useContext(AuthContext);
             placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
+            onBlur={handleBlur}
+            error={getError("password")}
+            tabIndex={2}
+            accessKey="p"
+            aria-label="Account Password "
           />
+          {serverErrors.general && (
+            <div className={styles.error}>{serverErrors.general}</div>
+          )}
         </div>
-
         <div className={styles.actions}>
-
           <Button
             type="submit"
             text={isLoading ? "Loading..." : "Log In"}
@@ -94,4 +123,3 @@ const {login} = useContext(AuthContext);
 };
 
 export default LoginForm;
-

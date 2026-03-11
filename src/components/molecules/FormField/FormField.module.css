@@ -29,6 +29,10 @@
     font-size: 0.9rem;
 }
 
+.error{
+  color: red;
+  margin-left: 10px;
+}
 
 /* @media (min-width: 1000px) {
   

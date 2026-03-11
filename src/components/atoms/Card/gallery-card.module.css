@@ -114,6 +114,16 @@
   z-index: 10;
 }
 
+.countdown {
+  font-size: 0.85rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 4px;
+}
+
 @media (min-width: 1000px) {
   .card {
     width: 246px;
