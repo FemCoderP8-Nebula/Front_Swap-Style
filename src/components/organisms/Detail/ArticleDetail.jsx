@@ -11,24 +11,54 @@ import SizeField from "../../molecules/DetailParts/Size/SizeField";
 import ImageField from "../../molecules/DetailParts/Image/ImageField";
 import useAuth from "../../../hooks/useAuth";
 import articleService from "../../../service/apiArticle";
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import apiReserve from "../../../service/apiReserve";
+import useCountdown from "../../../hooks/useCountdown";
 
+const ArticleDetail = () => {
 
-const ArticleDetail = ({ article}) => {
-
+    const navigate = useNavigate();
+    const { id } = useParams();
     const { user } = useAuth();
-
-    const userOffers = user?.id === article?.idUser;
-    // const navigate = useNavigate();
-
     const isMobile = useIsMobile();
-    const [currentArticle, setCurrentArticle] = useState(article);
+    const [currentArticle, setCurrentArticle] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const userOffers = user?.id === currentArticle?.idUser;
+    const isReservedByMe = currentArticle?.isReserved && user?.id === currentArticle?.reservedByUserId;
+    const isReservedByOther = currentArticle?.isReserved && user?.id !== currentArticle?.reservedByUserId;
+    const timeLeft = useCountdown(currentArticle?.isReserved ? currentArticle?.expiryDate : null);
+
+
+    const fetchArticle = async () => {
+        try {
+            const data = await articleService.getById(id);
+            console.log(data);
+            setCurrentArticle(data);
+        } catch (error) {
+            console.error("Error fetching article:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchArticle();
+    }, [id]);
+
+    const handleToggleReserve = async () => {
+        try {
+            await apiReserve.toggle(currentArticle.id, user.id);
+            fetchArticle();
+        } catch (error) {
+            console.error("Error toggling reservation:", error);
+        }
+    };
 
     const handleUpdateTitle = async (val) => {
         try {
-            const updatedArticle = await articleService.updateTitle(currentArticle.id, val);
-            setCurrentArticle(updatedArticle);
+            await articleService.updateTitle(currentArticle.id, val);
+            fetchArticle();
             console.log("Updated and rendered");
         } catch (error) {
             console.error("Update failed", error);
@@ -37,8 +67,8 @@ const ArticleDetail = ({ article}) => {
 
     const handleUpdateDescription = async (val) => {
         try {
-            const updatedArticle = await articleService.updateDescription(currentArticle.id, val);
-            setCurrentArticle(updatedArticle);
+            await articleService.updateDescription(currentArticle.id, val);
+            fetchArticle();
             console.log("Updated and rendered");
         } catch (error) {
             console.error("Update failed", error);
@@ -47,8 +77,8 @@ const ArticleDetail = ({ article}) => {
 
     const handleUpdatePrice = async (val) => {
         try {
-            const updatedArticle = await articleService.updatePrice(currentArticle.id, val);
-            setCurrentArticle(updatedArticle);
+            await articleService.updatePrice(currentArticle.id, val);
+            fetchArticle();
             console.log("Updated and rendered");
         } catch (error) {
             console.error("Update failed", error);
@@ -57,8 +87,8 @@ const ArticleDetail = ({ article}) => {
 
     const handleUpdateSize = async (val) => {
         try {
-            const updatedArticle = await articleService.updateSize(currentArticle.id, val);
-            setCurrentArticle(updatedArticle);
+            await articleService.updateSize(currentArticle.id, val);
+            fetchArticle();
             console.log("Updated and rendered");
         } catch (error) {
             console.error("Update failed", error);
@@ -67,8 +97,8 @@ const ArticleDetail = ({ article}) => {
 
     const handleUpdateCategory = async (val) => {
         try {
-            const updatedArticle = await articleService.updateCategory(currentArticle.id, val);
-            setCurrentArticle(updatedArticle);
+            await articleService.updateCategory(currentArticle.id, val);
+            fetchArticle();
             console.log("Updated and rendered");
         } catch (error) {
             console.error("Update failed", error);
@@ -77,22 +107,22 @@ const ArticleDetail = ({ article}) => {
 
     const handleUpdateStatus = async (val) => {
         try {
-            const updatedArticle = await articleService.updateState(currentArticle.id, val);
-            setCurrentArticle(updatedArticle);
+            await articleService.updateState(currentArticle.id, val);
+            fetchArticle();
             console.log("Updated and rendered");
         } catch (error) {
             console.error("Update failed", error);
         }
     };
 
-
     //provisional para imagen
     const handleUpdateImage = (file) => console.log("Update Image File:", file);
-    const resolvedImage = !article?.image || article?.image === "placeholderdetail"
+    const resolvedImage = !currentArticle?.image || currentArticle?.image === "placeholderdetail"
         ? ImagePlaceholder
-        : article?.image;
+        : currentArticle?.image;
 
-
+    if (isLoading) return <p>Loading...</p>;
+    if (!currentArticle) return <p>Article not found</p>;
     return (
         <main className={styles.detailContainer}>
             {isMobile ? (
@@ -122,13 +152,27 @@ const ArticleDetail = ({ article}) => {
                     </div>
 
                     <div className={styles.metaDataDetail}>
-                        <p className={styles.userOffers}>{article?.user}</p>
-                        <p className={styles.date}>{article?.date}</p>
+                        <p className={styles.userOffers}>{currentArticle?.user}</p>
+                        <p className={styles.date}>{currentArticle?.date}</p>
                     </div>
 
                     <section className={styles.btnsDetail}>
-                        <Button text="Book" BtnClass="neon" />
-                        <Button text="Cancel" BtnClass="cancel" />
+                        {currentArticle?.isReserved && timeLeft && (
+                            <div className={styles.countdown}>
+                                <p>Reserved — expires in: {String(timeLeft.hours).padStart(2, "0")}:
+                                    {String(timeLeft.minutes).padStart(2, "0")}:
+                                    {String(timeLeft.seconds).padStart(2, "0")}
+                                </p>
+                            </div>
+                        )}
+                        {!userOffers && user && (
+                            <Button
+                                text={isReservedByOther ? "Not available" : isReservedByMe ? "Cancel Booking" : "Book"}
+                                BtnClass={isReservedByOther ? "disabled" : isReservedByMe ? "cancel" : "neon"}
+                                onClick={handleToggleReserve}
+                                disabled={isReservedByOther} />
+                        )}
+                        <Button text="Back" BtnClass="cancel" onClick={() => navigate(-1)} />
                     </section>
                 </section>
 
@@ -154,17 +198,32 @@ const ArticleDetail = ({ article}) => {
                         <div className={styles.metaDataDetailDesktop}>
                             <div className={styles.categoryAndUserDetailDesktop}>
                                 <CategoryField initialValue={currentArticle.category} onSave={handleUpdateCategory} userOffers={userOffers} className={styles.categoryDesktop} />
-                                <p className={styles.userOffers}>{article?.user}</p>
+                                <p className={styles.userOffers}>{currentArticle?.user}</p>
                             </div>
                             <div className={styles.sizeAndDateDetailDesktop}>
                                 <SizeField initialValue={currentArticle.size} onSave={handleUpdateSize} userOffers={userOffers} className={styles.sizeValue} />
-                                <p className={styles.date}>{article?.date}</p>
+                                <p className={styles.date}>{currentArticle?.date}</p>
                             </div>
                         </div>
 
                         <section className={styles.btnsDetailDesktop}>
-                            <Button text="Book" BtnClass="neon" />
-                            <Button text="Back" BtnClass="cancel" />
+                            {currentArticle?.isReserved && timeLeft && (
+                                <div className={styles.countdown}>
+                                    <p>Reserved — expires in: {String(timeLeft.hours).padStart(2, "0")}:
+                                        {String(timeLeft.minutes).padStart(2, "0")}:
+                                        {String(timeLeft.seconds).padStart(2, "0")}
+                                    </p>
+                                </div>
+                            )}
+                            {!userOffers && user && (
+                            <Button
+                            text={isReservedByOther ? "Not available" : isReservedByMe ? "Cancel Booking" : "Book"} 
+                            BtnClass={isReservedByOther ? "disabled" : isReservedByMe ? "cancel" : "neon"} 
+                            onClick={handleToggleReserve}
+                            disabled={isReservedByOther}
+                            />
+                            )}
+                            <Button text="Back" BtnClass="cancel" onClick= {() => navigate (-1)}/>
                         </section>
                     </div>
                 </section>

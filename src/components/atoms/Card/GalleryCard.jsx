@@ -22,11 +22,11 @@ function GalleryCard({
     !image || image === "placeholder" ? ImagePlaceholder : image;
 
   const timeLeft = useCountdown(isReserved ? expiryDate : null);
-  console.log(expiryDate);
+  // console.log(expiryDate);
 
   return (
-    //<Link to={`/home/info/${id}`} className={styles.cardLink}>
-    <Link to={`/home/prueba/${id}`} className={styles.cardLink}>
+    <Link to={`/home/info/${id}`} className={styles.cardLink}>
+    {/* <Link to={`/home/prueba/${id}`} className={styles.cardLink}> */}
       <div className={styles.card}>
         <p className={styles.title_card}>{title}</p>
         <div className={styles.subtitle_card}>

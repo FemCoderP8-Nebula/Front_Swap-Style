@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
       { path: "checkmodal", Component: CheckModal },
       { path: "login", Component: Login },
       { path: "gallery", Component: Gallery },
-      { path: "info", Component: Detail },
+      { path: "info/:id", Component: Detail },
       { path: "regArticle", Component: RegArticle },
       { path: "contact", Component: Contact },
       { path: "faqs", Component: Faqs },
