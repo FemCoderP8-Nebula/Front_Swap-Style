@@ -51,11 +51,24 @@
   }
 }
 
+.errorMessage {
+  color: #d32f2f; /* Un rojo elegante */
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+  text-align: left;
+  /* Animación suave para evitar el parpadeo brusco */
+  animation: fadeIn 0.2s ease-in-out;
+}
 
-/* form div { 
-    margin-bottom: 25px; 
-} */
+.inputError {
+  border: 1px solid #d32f2f !important;
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 form {
     display: flex;
