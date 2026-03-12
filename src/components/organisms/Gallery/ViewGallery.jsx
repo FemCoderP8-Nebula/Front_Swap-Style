@@ -72,6 +72,10 @@ const ViewGallery = () => {
 
   useEffect(() => {
     fetchArticles(activeFilters, page);
+    const interval = setInterval(() => {
+      fetchArticles(activeFilters, page);
+    }, 30000);
+    return () => clearInterval(interval);
   }, [page]);
 
   const handleFiltersChange = (filters) => {
@@ -106,6 +110,7 @@ const ViewGallery = () => {
               price={article.price}
               image={article.image}
               isReserved={article.isReserved}
+              expiryDate={article.expiryDate}
             />
           ))}
         </div>

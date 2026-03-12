@@ -27,48 +27,29 @@ function SecondText() {
           Our Vision has four core pillars:
         </h3>
 
-        <div className={styles.grid_container}>
-          <div
-            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
-          >
-            Sustainable
-          </div>
-          <div
-            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
-          >
-            Affordable
-          </div>
-          <div
-            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
-          >
-            Social
-          </div>
-          <div
-            className={`${styles.item} ${styles.large} ${styles.title_cell}`}
-          >
-            Empowering
-          </div>
 
-        <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Sustainable</div>
-        <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Affordable</div>
-        <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Social</div>
-        <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Empowering</div>
+<div className={styles.grid_container}>
 
-  
-  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image1} alt="Sustaninable" title="Sustanaible"/></div>
+  <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Sustainable</div>
+  <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Affordable</div>
+  <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Social</div>
+  <div className={`${styles.item} ${styles.large} ${styles.title_cell}`}>Empowering</div>
+
+  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image1} alt="Sustainable"/></div>
   <div className={`${styles.item} ${styles.text_cell}`}>Less waste, more conscious choices.</div>
-  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image2} alt="Affordable" title="Affordable"/></div>
+  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image2} alt="Affordable"/></div>
   <div className={`${styles.item} ${styles.text_cell}`}>Great style within everyone's reach.</div>
-  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image3} alt="Social" title="Social"/></div>
-  <div className={`${styles.item} ${styles.text_cell}`}>A &nbsp;&nbsp;&nbsp;&nbsp; network built on human connection.</div>
-  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image4} alt="Empowering" title="Empowering"/></div>
+  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image3} alt="Social"/></div>
+  <div className={`${styles.item} ${styles.text_cell}`}>A network built on human connection.</div>
+  <div className={`${styles.item} ${styles.image_cell}`}><img src={Image4} alt="Empowering"/></div>
   <div className={`${styles.item} ${styles.text_cell}`}>Wear who you are while protecting the planet.</div>
+
+</div>
 
 </div>
 <h2 className={styles.final_conclussion}>"Redefining the future of style—one swap at a time."</h2>
 <div className={styles.btnInv_mobile}><Button text="Go to explore our World!" BtnClass="neon_invite" path={"/home/gallery"}/></div>
 <div className={styles.btn_field}><Button text="Register" BtnClass={isMobile ? "liquid_mobile" : "liquid"} path={"/home/register"}/></div>
-</div>
         </>
     )
 }

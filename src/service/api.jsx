@@ -29,7 +29,7 @@ api.interceptors.response.use(
       );
       switch (error.response.status) {
         case 400:
-          alert("Bad Request (400)");
+          //alert("Bad Request (400)");
           break;
         case 401:
           alert("Not authorized (401)");
