@@ -1,0 +1,15 @@
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid var(--color-texth4);
+  background-color: #f0f9f4; 
+  color: #333;
+  font-family: 'Syne', sans-serif;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.input:focus {
+  box-shadow: var(--box-shadow);
+}

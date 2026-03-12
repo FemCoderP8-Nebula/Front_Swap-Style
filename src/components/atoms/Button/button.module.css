@@ -21,11 +21,8 @@ button {
 .neon {
   border: 5px solid var(--color-neonbutton);
   color: var(--color-neonbutton);
-  font-size: 16px;
-  font-weight: 600;
-  width: 120px;
-  height: 45px;
-  padding: 8px;
+  font-size: 32px;
+  font-weight: 800;
 }
 
 .neon:hover,
@@ -38,7 +35,7 @@ button {
   width: auto;
   border: 5px solid var(--color-neonbutton);
   color: var(--color-neonbutton);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
 }
 
@@ -55,9 +52,6 @@ button {
   font-size: 16px;
   font-weight: normal;
   transition: 0.3s ease;
-  width: 120px;
-  height: 45px;
-  padding: 8px;
 }
 
 .reserved {

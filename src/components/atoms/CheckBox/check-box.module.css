@@ -1,0 +1,17 @@
+input.checkBox{
+    appearance: none !important;
+    background-color: var(--background-primary);
+    border: 2px var(--color-texth2) solid !important;
+    border-radius: 5px;
+    width: 24px !important;
+    height: 24px !important;
+    cursor: pointer !important; 
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+input:checked::after{
+    font-size: 25px !important;
+}

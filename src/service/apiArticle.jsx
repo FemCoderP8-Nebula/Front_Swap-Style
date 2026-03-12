@@ -74,7 +74,12 @@ const articleService = {
   updateState: async (id, state) => {
     const response = await api.patch(`/article/state/${id}`, { state });
     return response.data;
-  }
+  },
+  
+  getById: async (id) => {
+    const response = await api.get(`/article/${id}`);
+    return response.data;
+},
 };
 
 export default articleService;

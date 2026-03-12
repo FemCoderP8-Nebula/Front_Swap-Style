@@ -98,7 +98,8 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: clamp(16px,16px,18px);
+    padding-left: 80px;
   }
 
   .name_app {
@@ -113,6 +114,7 @@ footer {
     font-size: 16px;
     flex-direction: row;
     flex-wrap: nowrap;
+    padding-right: 80px;
   }
 
   .item_rrss {
