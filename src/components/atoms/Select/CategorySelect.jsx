@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import apiArticle from "../../../service/apiArticle";
-import styles from "./category-select.module.css";
 
 const CategorySelect = ({ value, onChange}) => {
   const [categories, setCategories] = useState([]);
