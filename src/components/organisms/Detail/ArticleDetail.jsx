@@ -12,18 +12,15 @@ import ImageField from "../../molecules/DetailParts/Image/ImageField";
 import useAuth from "../../../hooks/useAuth";
 import articleService from "../../../service/apiArticle";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
-const ArticleDetail = ({ article, userOffers }) => {
+const ArticleDetail = ({ article}) => {
 
-    const { id } =  useParams();
+    const { user } = useAuth();
 
-    const userOwner = user?.id === article?.idUser;
-
-    const { user } = useAuth(); // esto es logueado
-    const navigate = useNavigate();
-    
+    const userOffers = user?.id === article?.idUser;
+    // const navigate = useNavigate();
 
     const isMobile = useIsMobile();
     const [currentArticle, setCurrentArticle] = useState(article);
