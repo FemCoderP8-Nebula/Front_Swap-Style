@@ -25,8 +25,7 @@ function GalleryCard({
   console.log(expiryDate);
 
   return (
-    //<Link to={`/home/info/${id}`} className={styles.cardLink}>
-    <Link to={`/home/prueba/${id}`} className={styles.cardLink}>
+    <Link to={`/home/info/${id}`} className={styles.cardLink}>
       <div className={styles.card}>
         <p className={styles.title_card}>{title}</p>
         <div className={styles.subtitle_card}>
@@ -59,7 +58,7 @@ function GalleryCard({
 
         <div className={styles.info_card}>
           <p className={styles.user_card}>{user}</p>
-          <p className={styles.status_cardMobile}>
+          <p className={styles.status_cardDesktop}>
             {STATE_LABELS[state] || state}
           </p>
           <p className={styles.size_card}>{size}</p>
