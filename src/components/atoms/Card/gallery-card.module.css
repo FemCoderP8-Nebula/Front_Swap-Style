@@ -19,7 +19,8 @@
   width: 100%;
   white-space: nowrap; 
   overflow: hidden; 
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
+  flex-shrink: 0;
 }
 
 .subtitle_card {
@@ -30,6 +31,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .category_card {
@@ -48,6 +50,8 @@
   flex-direction: column;
   align-items: initial;
   justify-content: end;
+   flex: 1;
+   min-height: 100px;
 }
 
 .image_card img {
@@ -79,9 +83,7 @@
   align-self: flex-start;
 }
 
-.status_cardMobile {
-  display: block;
-}
+
 
 .size_card {
   color: #e4090d;
@@ -91,7 +93,8 @@
 
 .prize_cardMobile {
   font-weight: bold;
-  color: var(--color-texth2);
+  color:var(--color-texth2);
+  text-shadow: var(--box-shadow);
 }
 
 .cardLink {
@@ -100,9 +103,16 @@
   display: block;
 }
 
+.status_cardMobile {
+  display: block;
+  color: var(--color-orange);
+  text-shadow: var(--box-shadow);
+}
+
 .status_cardDesktop {
   display: none;
 }
+
 
 .prize_cardDesktop {
   display: none;
@@ -153,6 +163,7 @@
 
   .image_card {
     height: 120px;
+    min-height: 80px;
   }
 
   .info_card {

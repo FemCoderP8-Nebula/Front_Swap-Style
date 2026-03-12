@@ -1,5 +1,6 @@
 import api from "./api";
 
+
 const articleService = {
   create: async (idUser, data) => {
     const response = await api.post(`/article/add/${idUser}`, data);

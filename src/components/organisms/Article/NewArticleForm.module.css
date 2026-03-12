@@ -4,16 +4,16 @@
     align-items: center;
     margin: 40px auto; 
     padding: 2rem; 
-   
-
+    /* min-height: calc(100vh - 20vh - 200px) */
 }
 
 .title {
     max-width: 100%; 
     font-size: 2rem ;
     text-align: center;
-    margin: 2rem ; 
+    /* margin: 2rem ;  */
     color: var(--text-shadow);
+    margin-bottom: 30px;
 }
 
 .form {
@@ -35,6 +35,21 @@
     margin-bottom: 20px;
     
    
+}
+.select{
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid var(--color-texth2);
+  background-color: #f0f9f4; 
+  color: #333;
+  font-family: 'Syne', sans-serif;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.select:focus {
+  box-shadow: var(--box-shadow);
 }
 .row{
     display: flex;
@@ -58,27 +73,34 @@ border-color: var(--color-texth2)!important;
     width: 100%;
 }
 .wstate{
-    width: 40%;
-    align-self: flex-start;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid var(--color-texth4);
+  color: #333;
+  font-family: 'Syne', sans-serif;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  border-color: var(--color-texth2)!important; 
     
 }
-
-.wstate input{
-border-color: var(--color-texth2)!important; 
-}
-
 
 .descWrapper{
     width: 100%;
 }
 
-.descWrapper input{
-    height: 150px; /* Aquí le das el tamaño "cuadrado" */
-    display: flex;
-    align-items: flex-start; /* Intenta que el texto empiece arriba */
-    padding-top: 15px !important;
+.textarea {
+    width: 100%;
+    min-height: 100px; 
+    padding: 12px;
+    resize: vertical; 
+    font-family: 'Syne'; 
+    align-items: flex-start; 
+    border: 1px solid #ccc; 
     border-color: var(--color-texth2)!important; 
-
+    background-color: var(--background-modal);
+    border-radius: 8px;
+    outline: none;
 }
 .actions {
     display: flex;
@@ -102,31 +124,118 @@ border-color: var(--color-texth2)!important;
     font-weight: normal;
 }
 
-/* @media (min-width: 768px) {
-  .container {
-    max-width: 480px;
-    margin-bottom: 12vh; 
+@media (min-width: 768px) {
 
+
+  .form {
+    display: grid;
+    grid-template-columns: 40% 60%; 
+    grid-template-areas:
+      "fields row"
+      "fields desc"
+      "wstate desc"
+      "wstate actions";
+    column-gap: 40px;
+    row-gap: 15px;
+    justify-items: start;
+    width: 80%;
+    margin-bottom: 50px;
   }
 
-}
-
-@media (min-width: 1000px){
-.container{
-    max-width: 600px;
-    padding: 2rem;
-    margin-bottom: 30px;
-    margin-top: 30px;
-
-    min-height: auto;
-}
-
-.actions {
-    display: flex;      
-    gap: 150px;         
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
   
-} */
+  .fields {
+    grid-area: fields;
+    width: 100%;
+  }
+
+  .wstate {
+    grid-area: wstate;
+    width: 50%;
+  }
+
+ 
+  .row {
+    grid-area: row;
+    display: flex;
+    gap: 10px;
+    max-width: 220px;
+  }
+
+  .row input {
+    height: 36px;
+    font-size: 14px;
+  }
+
+  /* .descWrapper {
+    grid-area: desc;
+  } */
+
+  .descWrapper input {
+    height: 180px;
+    align-items: flex-start;
+  }
+
+  .fields input:nth-child(3) { 
+    height: 120px;
+  }
+
+  .actions {
+    grid-area: actions;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 1000px) {
+  
+  body {
+    overflow: hidden; 
+  }
+
+  .container {
+    height: 60vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-bottom: 80px;
+  }
+
+  .title {
+    margin-bottom: 20px; 
+    font-size: 2.5rem;
+  }
+
+  .form {
+    
+    width: 900px; 
+    max-width: 85%; 
+    margin: 0 auto; 
+    
+    display: grid;
+    grid-template-columns: 350px 1fr; 
+    grid-template-areas:
+      "fields row"
+      "fields desc"
+      "wstate desc"
+      "wstate actions";
+    column-gap: 60px;
+    row-gap: 15px;
+    align-items: start;
+  }
+
+ 
+  .fields input:nth-child(3) { 
+    height: 130px; 
+  }
+
+  .descWrapper input {
+    height: 200px;
+  }
+
+  .row {
+    max-width: 300px; 
+  }
+
+  .actions {
+    margin-top: 10px;
+    justify-content: flex-start;
+  }
+}
