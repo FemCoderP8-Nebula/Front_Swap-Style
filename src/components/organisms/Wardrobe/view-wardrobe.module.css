@@ -53,4 +53,8 @@
   .noArticles {
     font-size: 32px;
   }
+
+  .view_wardrobe{
+    column-gap: 30px;
+  }
 }

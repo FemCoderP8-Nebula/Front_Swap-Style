@@ -42,11 +42,7 @@ const paginatedArticles = articles.slice(page * size, (page + 1) * size);
         state={article.state}
         size={article.size}
         price={article.price}
-        image={
-          !article.image || article.image === "placeholder"
-            ? ImagePlaceholder
-            : article.image
-        }
+        image={article.image}
       />
     ))}
   </div>

@@ -4,6 +4,7 @@ import styles from "./gallery-card.module.css";
 import { Link } from "react-router-dom";
 import useCountdown from "../../../hooks/useCountdown";
 import { STATE_LABELS } from "../../atoms/States/States";
+import { getImageUrl } from "../../../utils/imageUrl";
 
 function GalleryCard({
   id,
@@ -18,8 +19,7 @@ function GalleryCard({
   isReserved,
   expiryDate,
 }) {
-  const resolvedImage =
-    !image || image === "placeholder" ? ImagePlaceholder : image;
+  const resolvedImage = getImageUrl(image) ?? ImagePlaceholder;
 
   const timeLeft = useCountdown(isReserved ? expiryDate : null);
   console.log(expiryDate);

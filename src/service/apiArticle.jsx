@@ -1,21 +1,9 @@
 import api from "./api";
 
-// const articleService = {
-//   create: async (idUser, data) => {
-//     const response = await api.post(`/article/add/${idUser}`, data);{
-      
-//     }
-//     return response.data;
-//   },
 
 const articleService = {
   create: async (idUser, data) => {
-    // 'data' es el FormData. Axios necesita que sea el segundo argumento.
-    const response = await api.post(`/article/add/${idUser}`, data, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    const response = await api.post(`/article/add/${idUser}`, data);
     return response.data;
   },
 
