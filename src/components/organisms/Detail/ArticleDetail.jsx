@@ -175,8 +175,8 @@ const ArticleDetail = () => {
                         )}
                         {!userOffers && user && (
                             <Button
-                                text={isReservedByOther ? "Not available" : isReservedByMe ? "Cancel Booking" : "Book"}
-                                BtnClass={isReservedByOther ? "disabled" : isReservedByMe ? "cancel" : "neon"}
+                                text={isReservedByOther ? "Not available" : isReservedByMe ? "Cancel" : "Book"}
+                                BtnClass={isReservedByOther ? "disabled" : isReservedByMe ? "reserved" : "neon"}
                                 onClick={handleToggleReserve}
                                 disabled={isReservedByOther} />
                         )}
@@ -225,8 +225,8 @@ const ArticleDetail = () => {
                             )}
                             {!userOffers && user && (
                             <Button
-                            text={isReservedByOther ? "Not available" : isReservedByMe ? "Cancel Booking" : "Book"} 
-                            BtnClass={isReservedByOther ? "disabled" : isReservedByMe ? "cancel" : "neon"} 
+                            text={isReservedByOther ? "Not available" : isReservedByMe ? "Cancel" : "Book"} 
+                            BtnClass={isReservedByOther ? "disabled" : isReservedByMe ? "reserved" : "neon"} 
                             onClick={handleToggleReserve}
                             disabled={isReservedByOther}
                             />
