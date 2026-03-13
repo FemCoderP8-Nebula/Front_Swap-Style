@@ -4,8 +4,7 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
-4. [Collaboration](#collaboration)
-5. [FAQs](#faqs)
+
 
 ### General Info
 ***
@@ -14,11 +13,12 @@
 Users can publish garments, browse items from others, and manage reservations. The application follows a social media-inspired interface where any user can create and exchange items.
 
 **Key Features:**
-* Full CRUD for clothing items (Create, Read, Update, Delete).
+* Full CRUD for clothing items (Create, Read, Update, Delete(Future implementation)).
 * Advanced filtering by category and date.
 * Item reservation system with concurrency protection.
 * Responsive design (Desktop, Tablet, and Mobile).
 * Secure authentication and form validation.
+* Smtp- simple mail transfer protocol
 
 ## Technologies
 ***
