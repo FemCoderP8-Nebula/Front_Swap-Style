@@ -21,7 +21,6 @@ const CategorySelect = ({ value, onChange}) => {
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className={styles.select_category}
     >
       <option value="">All the categories</option>
       {categories.map((cat) => (

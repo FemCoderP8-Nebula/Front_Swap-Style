@@ -76,11 +76,19 @@ const articleService = {
     const response = await api.patch(`/article/state/${id}`, { state });
     return response.data;
   },
-  
+
+  updateImage: async (idArticle, file) => {
+    const formData = new FormData();
+    formData.append("image", file);
+    const response = await api.patch(`/article/image/${idArticle}`, formData);
+    return response.data;
+  },
+
   getById: async (id) => {
     const response = await api.get(`/article/${id}`);
     return response.data;
-},
+  },
+
 };
 
 export default articleService;

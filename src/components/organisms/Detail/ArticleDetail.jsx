@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import apiReserve from "../../../service/apiReserve";
 import useCountdown from "../../../hooks/useCountdown";
+import { getImageUrl } from "../../../utils/imageUrl";
 
 const ArticleDetail = () => {
 
@@ -115,15 +116,22 @@ const ArticleDetail = () => {
         }
     };
 
-    //provisional para imagen
-    const handleUpdateImage = (file) => console.log("Update Image File:", file);
-    const resolvedImage = !currentArticle?.image || currentArticle?.image === "placeholderdetail"
-        ? ImagePlaceholder
-        : currentArticle?.image;
+    const handleUpdateImage = async (file) => {
+        try{
+            await articleService.updateImage(currentArticle.id, file);
+            fetchArticle();
+            console.log("Updated and rendered");
+        } catch (error) {
+            console.error("Update failed", error);
+        }
+    };
+
+    const resolvedImage = getImageUrl(currentArticle?.image) ?? ImagePlaceholder;
 
     if (isLoading) return <p>Loading...</p>;
     if (!currentArticle) return <p>Article not found</p>;
     return (
+
         <main className={styles.detailContainer}>
             {isMobile ? (
 

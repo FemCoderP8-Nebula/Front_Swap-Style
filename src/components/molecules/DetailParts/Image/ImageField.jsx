@@ -12,7 +12,6 @@ function ImageField({ initialImage, onSave, userOffers, className }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Necesitare el servicio de subida de File de la pill de Majo que estara en el form de registro de art
       onSave(file);
     }
   };
