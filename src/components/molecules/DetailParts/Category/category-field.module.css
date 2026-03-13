@@ -1,0 +1,46 @@
+.categoryWrapper {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 12px;
+}
+
+.categoryWrapper p {
+    margin: 0;
+}
+
+.displayRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.displayRow p {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.editButton {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 24px;
+}
+
+.penIcon {
+    width: 100%;
+    height: auto;
+}
+
+.selectCategory {
+    border: none;
+    border-bottom: 2px solid #00FF85;
+    background: transparent;
+    outline: none;
+    color: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}

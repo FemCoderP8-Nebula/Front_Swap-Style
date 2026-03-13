@@ -2,7 +2,7 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -52,5 +52,9 @@
 
   .noArticles {
     font-size: 32px;
+  }
+
+  .view_wardrobe{
+    column-gap: 30px;
   }
 }

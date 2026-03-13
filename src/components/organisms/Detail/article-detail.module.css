@@ -1,0 +1,259 @@
+.detailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-primary);
+    min-height: 100vh;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.titleCategoryDetail {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.articleTitle {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    text-shadow: var(--text-shadow);
+}
+
+.category {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-texth4);
+    margin: 0;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.leftColumn,
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.statusDetail {
+    width: 296px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.status {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--color-orange);
+}
+
+.imageDetail {
+    width: 296px;
+    height: 304px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.articleImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.priceSizeDetail {
+    width: 296px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.priceValue {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.sizeValue {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.descriptionDetail {
+    width: 296px;
+    margin-bottom: 30px;
+}
+
+.descriptionBody {
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.metaDataDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 296px;
+    margin: 15px auto;
+}
+
+.userOffers {
+    color: var(--color-texth3);
+    margin-top: 15px;
+}
+
+.imgEdit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.btnsDetail {
+    display: flex;
+    justify-content: space-between;
+    width: 296px;
+    gap: 15px;
+}
+
+
+@media (min-width: 768px) {
+    .contentWrapper {
+        flex-direction: column;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+
+@media (min-width: 1000px) {
+
+    .detailContainer {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        align-items: flex-start;
+        margin-top: 0px;
+    }
+
+    .leftColumn {
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        /* align-items: flex-start; */
+        gap: 20px;
+    }
+
+    .rightColumn {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 0px;
+    }
+
+    .imageDetailDesktop {
+        width: 450px;
+        height: 480px;
+        object-position: center;
+        border-radius: 12px;
+    }
+
+    .statusPriceDetailDesktop {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .articleTitle {
+        font-size: 40px;
+        text-align: left;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    .descriptionDetailDesktop {
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid var(--background-modal);
+        border-radius: 10%;
+        padding: 2%, 4%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .detailContainer {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .categoryAndUserDetailDesktop {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .sizeAndDateDetailDesktop {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .categoryDesktop {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--color-texth4);
+        margin: 0;
+        text-align: left;
+        width: auto;
+    }
+
+    .userOffers {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .metaDataDetailDesktop {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .btnsDetailDesktop {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+}

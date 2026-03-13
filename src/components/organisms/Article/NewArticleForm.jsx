@@ -46,14 +46,20 @@ const NewArticleForm = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (!user || !user.id) {
-            setServerErrors({ general: "User session not found. Please login again." });
-            return;
-        }
-        setIsLoading(true)
-        setServerErrors({});
+    if (!user || !user.id) {
+        setServerErrors({ general: "User session not found. Please login again." });
+        return;
+    }
+
+    if (!newArticleData.image) {
+        setServerErrors({ image: "Please select an image." });
+        return;
+    }
+
+    setIsLoading(true);
+    setServerErrors({});
 
         try {
             const formData = new FormData();
@@ -120,6 +126,7 @@ const NewArticleForm = () => {
                         placeholder="Image"
                         onChange={handleChange}
                     />
+                    {getError("image") && <p className={styles.error}>{getError("image")}</p>}
                 </div>
 
                 <select className={styles.wstate} name="state" value={newArticleData.state} onChange={handleChange}>
