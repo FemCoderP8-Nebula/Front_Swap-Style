@@ -5,9 +5,12 @@ import Image3 from "../../../assets/Rectangle3.png";
 import Image4 from "../../../assets/Rectangle4.png";
 import Button from "../../atoms/Button/Button";
 import { useState, useEffect } from "react";
+import MessageModal from "../../organisms/ModalMessage/MessageModal";
+import alertGif from "../../../assets/alertGif.gif";
 
 function SecondText() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,7 +85,7 @@ function SecondText() {
         <Button
           text="Go to explore our World!"
           BtnClass="neon_invite"
-          onClick={() => alert("This section is not available yet")}
+          onClick={() => setShowRegisterModal(true)}
         />
       </div>
       <div className={styles.btn_field}>
@@ -92,6 +95,15 @@ function SecondText() {
           path={"/home/register"}
         />
       </div>
+      {showRegisterModal && (
+        <MessageModal
+          image={alertGif}
+          message="Under construction. Please register to explore our World!"
+          btnText="Register"
+          btnPath="/home/register" 
+          btnClass="liquid"
+        />
+      )}
     </>
   );
 }
