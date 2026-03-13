@@ -3,10 +3,8 @@ import { navigateTo } from "../router/navigator";
 
 const api = axios.create({
   baseURL: "http://localhost:8080/api/v1",
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
+
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
@@ -29,7 +27,7 @@ api.interceptors.response.use(
       );
       switch (error.response.status) {
         case 400:
-          //alert("Bad Request (400)");
+          // alert("Bad Request (400)");
           break;
         case 401:
           alert("Not authorized (401)");

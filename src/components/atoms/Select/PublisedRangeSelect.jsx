@@ -1,4 +1,3 @@
-import styles from "./published-select.module.css";
 
 
 const RANGE_LABELS = {

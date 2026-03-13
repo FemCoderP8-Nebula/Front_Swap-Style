@@ -1,0 +1,25 @@
+.statusWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 12px;
+    width: 100%;
+}
+
+.statusWrapper p {
+    margin: 0;
+}
+
+.editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    width: 24px;
+}
+
+.penIcon {
+    width: 100%;
+    height: auto;
+}

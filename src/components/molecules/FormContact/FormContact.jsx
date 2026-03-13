@@ -32,7 +32,7 @@ const validate = (form) => {
   return errors;
 };
 
-const FormContact = ({ onSubmit }) => {
+const FormContact = () => {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);

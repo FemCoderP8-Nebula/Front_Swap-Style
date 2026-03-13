@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import apiArticle from "../../../service/apiArticle";
-import styles from "./category-select.module.css";
 
 const CategorySelect = ({ value, onChange}) => {
   const [categories, setCategories] = useState([]);
@@ -22,7 +21,6 @@ const CategorySelect = ({ value, onChange}) => {
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className={styles.select_category}
     >
       <option value="">All the categories</option>
       {categories.map((cat) => (
