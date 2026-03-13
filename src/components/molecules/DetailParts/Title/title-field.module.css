@@ -1,0 +1,45 @@
+.titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.inputTitle {
+    font-size: 20px; 
+    font-weight: bold;
+    color: #1a1a1a;
+    border: none;
+    border-bottom: 2px solid #00FF85;
+    outline: none;
+    background: transparent;
+    padding: 2px 0;
+    width: 100%;
+    text-align: inherit;
+}
+
+.editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    width: 24px;
+    transition: transform 0.2s;
+}
+
+.editButton:hover {
+    transform: scale(1.1);
+}
+
+.penIcon {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 1000px) {
+    .inputTitle {
+        font-size: 32px;
+    }
+}

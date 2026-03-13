@@ -1,0 +1,8 @@
+.termsAgreement{
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    margin-left: 10px;
+}

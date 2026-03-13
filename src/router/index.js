@@ -14,6 +14,7 @@ import Panel from "../pages/Panel/UserPanel";
 import Wardrobe from "../pages/Wardrobe/Wardrobe";
 import HangerLoading from "../components/organisms/Loading/HangerLoading";
 import CheckModal from "../pages/Validations/CheckModal";
+import Prueba from "../pages/muestra";
 
 export const router = createBrowserRouter([
   {
@@ -31,13 +32,13 @@ export const router = createBrowserRouter([
       { path: "checkmodal", Component: CheckModal },
       { path: "login", Component: Login },
       { path: "gallery", Component: Gallery },
-      { path: "info", Component: Detail },
+      { path: "info/:id", Component: Detail },
       { path: "regArticle", Component: RegArticle },
       { path: "contact", Component: Contact },
       { path: "faqs", Component: Faqs },
       { path: "panel", Component: Panel },
       { path: "wardrobe", Component: Wardrobe },
-      { path: "prueba", Component: Prueba}
+      { path: "prueba/:id", Component: Prueba },
     ],
   },
 ]);

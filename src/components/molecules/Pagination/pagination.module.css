@@ -1,0 +1,100 @@
+.field_page {
+  width: 95%;
+  border: 1px solid var(--color-neonbutton);
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 8px 0;
+}
+
+.side_left,
+.side_right {
+  display: flex;
+  align-items: center;
+  width: 120px;
+}
+
+.side_right {
+  justify-content: flex-end;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.arrows {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00a26b;
+  background: transparent;
+  border: none;
+  width: 45px;
+  display: none;
+}
+
+.range_pageL,
+.range_pageR {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00a26b;
+}
+
+.arrowsL,
+.arrowsR {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00a26b;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  width: 45px;
+}
+
+.page_btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 18px;
+  width: 25px;
+}
+
+.active {
+  background-color: var(--color-texth3);
+  color: white;
+  font-weight: bold;
+}
+
+@media (min-width: 1000px) {
+  .side_left,
+  .side_right {
+    width: 200px;
+  }
+
+  .center {
+    gap: 4px;
+  }
+
+  .arrows {
+    font-size: 36px;
+    cursor: pointer;
+    display: block;
+    padding: 0;
+  }
+
+  .arrowsL,
+  .arrowsR {
+    font-size: 36px;
+    cursor: pointer;
+    width: 100px;
+  }
+
+  .page_btn {
+    cursor: pointer;
+    width: 50px;
+  }
+}

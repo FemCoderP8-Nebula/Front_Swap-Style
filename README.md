@@ -1,16 +1,42 @@
-# React + Vite
+# Swap & Style 👗✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
+1. [General Info](#general-info)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### General Info
+***
+**Status: In Development** Swap&Style is a digital platform designed for swapping second-hand clothes in a simple, economical, and sustainable way. The project aims to promote conscious consumption, reduce textile waste, and build a community where circular fashion is accessible and fun.
 
-## React Compiler
+Users can publish garments, browse items from others, and manage reservations. The application follows a social media-inspired interface where any user can create and exchange items.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Key Features:**
+* Full CRUD for clothing items (Create, Read, Update, Delete(Future implementation)).
+* Advanced filtering by category and date.
+* Item reservation system with concurrency protection.
+* Responsive design (Desktop, Tablet, and Mobile).
+* Secure authentication and form validation.
+* Smtp- simple mail transfer protocol
 
-## Expanding the ESLint configuration
+## Technologies
+***
+A list of technologies used within the project:
+* [React.js](https://reactjs.org/): Frontend library using Atomic Design principles.
+* [CSS Modules](https://sass-lang.com/): For modular and scalable styling.
+* [Figma](https://www.figma.com/): Used for UI/UX design and prototyping.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+***
+
+To run this project locally, you will need to set up both the Frontend and the Backend.
+
+**1. Backend Setup:**
+* Locate the Backend repository in the [FemCoderP8-Nebula organization](https://github.com/FemCoderP8-Nebula).
+
+**Frontend Setup:**
+```bash
+$git clone [https://github.com/FemCoderP8-Nebula/Front_Swap-Style.git$](https://github.com/FemCoderP8-Nebula/Front_Swap-Style.git$) cd Front_Swap-Style
+$ npm install
+$ npm start

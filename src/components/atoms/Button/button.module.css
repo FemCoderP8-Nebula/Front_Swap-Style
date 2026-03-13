@@ -1,5 +1,3 @@
-/* hacer el click y el bloqueo de los botones*/
-
 button {
   background: transparent;
   width: 160px;
@@ -35,7 +33,7 @@ button {
   width: auto;
   border: 5px solid var(--color-neonbutton);
   color: var(--color-neonbutton);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
 }
 
@@ -49,8 +47,8 @@ button {
 .cancel {
   border: 1px dashed black;
   color: black;
-  font-size: 32px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: normal;
   transition: 0.3s ease;
 }
 
@@ -81,6 +79,7 @@ button {
     box-shadow:
       6px 6px 12px rgba(0, 0, 0, 0.15),
       -6px -6px 12px rgba(255, 255, 255, 0.6);
+      isolation: isolate;
   }
 
   .liquid::before {
